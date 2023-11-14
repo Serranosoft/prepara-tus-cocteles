@@ -1,0 +1,23 @@
+{
+    "cocktails": [
+        {
+            "name": "Cóctel 1",
+            "description": "Descripción de cóctel 1",
+            "img": "",
+            "ingredients": [
+                {
+                    "name": "Ingrediente 1",
+                    "img": ""
+                },
+                {
+                    "name": "Ingrediente 2",
+                    "img": ""
+                },
+                {
+                    "name": "Ingrediente 3",
+                    "img": ""
+                }
+            ]
+        }
+    ]
+}

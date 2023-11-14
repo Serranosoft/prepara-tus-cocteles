@@ -11,6 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "scheme": "cocteles",
     "assetBundlePatterns": [
       "**/*"
     ],
@@ -21,10 +22,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.paulaymanu113.cocteles"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f64e0e3e-013b-4e7d-b693-3f41c2949834"
+      }
     }
   }
 }
