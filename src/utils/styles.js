@@ -8,6 +8,11 @@ export const ui = {
         color: "black",
         fontSize: 16.5,
     },
+    muted: {
+        fontFamily: "Regular",
+        color: "black",
+        fontSize: 14,
+    },
     h1: {
         fontSize: 60,
         fontFamily: "Semibold",
@@ -24,31 +29,24 @@ export const ui = {
         color: "black",
         fontSize: 25,
     },
+    h4: {
+        fontFamily: "Semibold",
+        color: "black",
+        fontSize: 20,
+        fontWeight: "bold",
+    },
     button: {
-        paddingVertical: 12,
-        paddingHorizontal: 32,
-        borderWidth: 3,
-        borderColor: "#ff85b8",
-        backgroundColor: "rgba(255, 133, 184, 0.25)", 
+        width: 60,
+        height: 60,
+        position: "absolute",
+        bottom: 32,
+        right: 24,
         justifyContent: "center",
         alignItems: "center",
-        borderRadius: 12,
-    },
-    floatingWrapper: {
-        backgroundColor: "#5B1A23", 
-        width: 65, 
-        height: 65, 
-        borderRadius: 100, 
-        position: "absolute", 
-        bottom: 15, 
-        right: 15, 
-        justifyContent: "center", 
-        alignItems: "center",
-    },
-    floatingImg: {
-        width: 40,
-        height: 40,
-        marginTop: 3,
+        borderWidth: 3,
+        borderRadius: 100,
+        borderColor: "#337AB7",
+        backgroundColor: "rgba(51, 122, 183, 0.25)", 
     }
 
 }

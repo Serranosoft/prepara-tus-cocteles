@@ -1,20 +1,19 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import { ui } from "../src/utils/styles";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Checkbox from 'expo-checkbox';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useFocusEffect } from "expo-router";
+import { Stack } from "expo-router";
 import getIngredients from "../src/utils/ingredients";
-import { getAsyncStorage2, getAsyncStore, setAsyncStorage, setAsyncStore, } from "../src/utils/storage";
-import { Image } from "expo-image";
+import { getAsyncStorage, getAsyncStore, setAsyncStorage, setAsyncStore, } from "../src/utils/storage";
+// import { Image } from "expo-image";
+import { Pressable } from "react-native";
+import { Image } from "react-native";
 
 export default function ManageStore() {
 
     // Array con los ingredientes actualizados
     const [ingredients, setIngredients] = useState(getIngredients());
-
-    // Array con los ingredientes que debo agregar al AsyncStorage
-    const [store, setStore] = useState([]);
+    const storage = useRef();
 
     // Al comenzar, obtiene el storage y mezcla el storage con los ingredientes, esto tan solo se hace una vez.
     useEffect(() => {
@@ -22,15 +21,11 @@ export default function ManageStore() {
     }, []);
 
     async function shuffleStorage() {
-        const result = await getAsyncStorage2();
+        const result = await getAsyncStorage();
         const parsedResult = JSON.parse(result);
+        storage.current = parsedResult;
         parsedResult.forEach(ingredient => updateIngredient(ingredient, true));
     }
-
-    // Cada vez que actualiza un item, actualizo el storage.
-    useEffect(() => {
-        setAsyncStorage(JSON.stringify(store));
-    }, [store])
 
     // Función que cambia la propiedad selected de un ingrediente a true o false.
     function updateIngredient(id, selected) {
@@ -46,41 +41,41 @@ export default function ManageStore() {
 
     // Función que actualice el storage y de uso de la funcion updateIngredients para actualizar el state
     function handleIngredient(id) {
-        if (store.includes(id)) {
-            setStore((prevStore) => prevStore.filter(item => item.id !== id));
-            updateIngredient(id, false);
-        } else {
-            setStore((prevStore) => [...prevStore, id]);
-            updateIngredient(id, true);
-        }
 
+        if (storage.current.includes(id)) {
+            updateIngredient(id, false);
+            storage.current.splice(storage.current.indexOf(id), 1);
+        } else {
+            updateIngredient(id, true);
+            storage.current.push(id);
+        }
+        setAsyncStorage(JSON.stringify(storage.current));
     }
 
+    function hola() {
+        console.log("hola");
+    }
 
     const renderItem = ({ item }) => (
         <View key={item.id} style={styles.row}>
             <View style={styles.item}>
                 <Image
                     style={styles.image}
-                    source={item.img}
-                    placeholder={'|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj['}
-                    transition={1000}
+                    source={{ uri: item.img}}
                 />
                 <Text style={ui.text}>{item.name}</Text>
             </View>
-            <Checkbox
-                style={styles.checkbox}
-                value={item.selected}
-                onValueChange={() => handleIngredient(item.id)}
-                color={item.selected ? '#4630EB' : undefined}
-            />
+            <Pressable style={{ borderWidth: 1, borderColor: "black", width: 30, height: 30, }} onPress={() => handleIngredient(item.id)}>
+                {item.selected &&
+                    <Image style={{ display: item.selected ? "flex" : "none", width: "100%", height: "100%"}} source={require("../assets/tick.png")} />
+                }
+            </Pressable>
         </View>
     )
 
     return (
         <View style={styles.container}>
-            <Text style={[ui.h2, { marginBottom: 32 }]}>Administrar nevera</Text>
-
+            <Stack.Screen options={{ title: "Gestiona tus ingredientes" }} />
             {ingredients && ingredients.length > 0 &&
                 <View style={styles.list}>
                     <FlatList
@@ -91,6 +86,7 @@ export default function ManageStore() {
                         initialNumToRender={10}
                         renderItem={renderItem}
                     />
+
                 </View>
 
             }

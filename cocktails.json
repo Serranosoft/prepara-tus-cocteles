@@ -1,20 +1,237 @@
 {
     "cocktails": [
         {
+            "id": 1,
             "name": "Cóctel 1",
             "description": "Descripción de cóctel 1",
             "img": "",
             "ingredients": [
                 {
+                    "id": 1,
                     "name": "Ingrediente 1",
                     "img": ""
                 },
                 {
+                    "id": 2,
                     "name": "Ingrediente 2",
                     "img": ""
                 },
                 {
+                    "id": 3,
                     "name": "Ingrediente 3",
+                    "img": ""
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Cóctel 2",
+            "description": "Descripción de cóctel 2",
+            "img": "",
+            "ingredients": [
+                {
+                    "id": 4,
+                    "name": "Ingrediente 3",
+                    "img": ""
+                },
+                {
+                    "id": 5,
+                    "name": "Ingrediente 1",
+                    "img": ""
+                },
+                {
+                    "id": 6,
+                    "name": "Ingrediente 5",
+                    "img": ""
+                },
+                {
+                    "id": 7,
+                    "name": "Ingrediente 4",
+                    "img": ""
+                },
+                {
+                    "id": 8,
+                    "name": "Ingrediente 1",
+                    "img": ""
+                },
+                {
+                    "id": 9,
+                    "name": "Ingrediente 2",
+                    "img": ""
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Cóctel 3",
+            "description": "Descripción de cóctel 3",
+            "img": "",
+            "ingredients": [
+                {
+                    "id": 1,
+                    "name": "Ingrediente 1",
+                    "img": ""
+                },
+                {
+                    "id": 2,
+                    "name": "Ingrediente 2",
+                    "img": ""
+                },
+                {
+                    "id": 3,
+                    "name": "Ingrediente 3",
+                    "img": ""
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Cóctel 4",
+            "description": "Descripción de cóctel 4",
+            "img": "",
+            "ingredients": [
+                {
+                    "id": 4,
+                    "name": "Ingrediente 3",
+                    "img": ""
+                },
+                {
+                    "id": 5,
+                    "name": "Ingrediente 1",
+                    "img": ""
+                },
+                {
+                    "id": 6,
+                    "name": "Ingrediente 5",
+                    "img": ""
+                },
+                {
+                    "id": 7,
+                    "name": "Ingrediente 4",
+                    "img": ""
+                },
+                {
+                    "id": 8,
+                    "name": "Ingrediente 1",
+                    "img": ""
+                },
+                {
+                    "id": 9,
+                    "name": "Ingrediente 2",
+                    "img": ""
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Cóctel 5",
+            "description": "Descripción de cóctel 5",
+            "img": "",
+            "ingredients": [
+                {
+                    "id": 4,
+                    "name": "Ingrediente 3",
+                    "img": ""
+                },
+                {
+                    "id": 5,
+                    "name": "Ingrediente 1",
+                    "img": ""
+                },
+                {
+                    "id": 6,
+                    "name": "Ingrediente 5",
+                    "img": ""
+                },
+                {
+                    "id": 7,
+                    "name": "Ingrediente 4",
+                    "img": ""
+                },
+                {
+                    "id": 8,
+                    "name": "Ingrediente 1",
+                    "img": ""
+                },
+                {
+                    "id": 9,
+                    "name": "Ingrediente 2",
+                    "img": ""
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Cóctel 6",
+            "description": "Descripción de cóctel 6",
+            "img": "",
+            "ingredients": [
+                {
+                    "id": 4,
+                    "name": "Ingrediente 3",
+                    "img": ""
+                },
+                {
+                    "id": 5,
+                    "name": "Ingrediente 1",
+                    "img": ""
+                },
+                {
+                    "id": 6,
+                    "name": "Ingrediente 5",
+                    "img": ""
+                },
+                {
+                    "id": 7,
+                    "name": "Ingrediente 4",
+                    "img": ""
+                },
+                {
+                    "id": 8,
+                    "name": "Ingrediente 1",
+                    "img": ""
+                },
+                {
+                    "id": 9,
+                    "name": "Ingrediente 2",
+                    "img": ""
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Cóctel 7",
+            "description": "Descripción de cóctel 7",
+            "img": "",
+            "ingredients": [
+                {
+                    "id": 4,
+                    "name": "Ingrediente 3",
+                    "img": ""
+                },
+                {
+                    "id": 5,
+                    "name": "Ingrediente 1",
+                    "img": ""
+                },
+                {
+                    "id": 6,
+                    "name": "Ingrediente 5",
+                    "img": ""
+                },
+                {
+                    "id": 7,
+                    "name": "Ingrediente 4",
+                    "img": ""
+                },
+                {
+                    "id": 8,
+                    "name": "Ingrediente 1",
+                    "img": ""
+                },
+                {
+                    "id": 9,
+                    "name": "Ingrediente 2",
                     "img": ""
                 }
             ]
