@@ -1,15 +1,18 @@
-import { FlatList, Image, Pressable, StyleSheet, Text, View } from "react-native";
-import React, { memo, useCallback, useEffect, useRef, useState } from "react";
-import { Stack } from "expo-router";
+import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { Link, Stack } from "expo-router";
 import getIngredients from "../src/utils/ingredients";
 import { getAsyncStorage, setAsyncStorage, } from "../src/utils/storage";
-// import { Image } from "expo-image";
+import { Image } from "expo-image";
 import { ui } from "../src/utils/styles";
+import getCocktails from "../src/utils/cocktails";
 
 export default function ManageStore() {
 
     // Array con los ingredientes actualizados
     const [ingredients, setIngredients] = useState(getIngredients());
+    const cocktails = useRef(getCocktails())
+
     const storage = useRef();
     const [loading, setLoading] = useState(true);
 
@@ -37,7 +40,6 @@ export default function ManageStore() {
     }
 
     function handleIngredient(index) {
-        console.log(new Date());
         const newData = [...ingredients];
         newData[index].selected = !newData[index].selected;
         setIngredients(newData);
@@ -61,38 +63,51 @@ export default function ManageStore() {
     }
 
 
+
+    function renderQty(id) {
+        let incremental = 0;
+        for (let i = 0; i < cocktails.current.length; i++) {
+            for (let j = 0; j < cocktails.current[i].ingredients.length; j++) {
+                if (cocktails.current[i].ingredients[j].id === id) {
+                    incremental++;
+                }
+            }
+        }
+
+        return incremental;
+    }
+
+    const renderItem = useCallback(({ item, index }) => (
+        <View key={item.id} style={styles.row}>
+            <Link asChild href={{ pathname: "/ingredient-detail", params: { id: item.id, name: item.name, img: item.img } }}>
+                <TouchableOpacity>
+                    <View style={styles.item}>
+                        <Image style={styles.image} source={{ uri: item.img }} />
+                        <View style={styles.info}>
+                            <Text style={ui.text}>{item.name}</Text>
+                            {
+                                renderQty(item.id) > 0 && <Text style={ui.muted}>Se usa en {renderQty(item.id)} cócteles</Text>
+                            }
+                        </View>
+                    </View>
+                </TouchableOpacity>
+            </Link>
+            <TouchableOpacity style={styles.checkbox} onPress={() => handleIngredient(index)}>
+                {item.selected &&
+                    <Image style={[styles.checkboxImg, { display: item.selected ? "flex" : "none" }]} source={require("../assets/tick.png")} />
+                }
+            </TouchableOpacity>
+        </View>
+    ), [])
+
     return (
         <View style={styles.container}>
-            <Stack.Screen options={{ title: "Gestiona tus ingredientes" }} />
+            <Stack.Screen options={{ title: "Gestiona tus ingredientes", headerShown: true }} />
             {!loading &&
-                <View style={styles.list}>
-                    <FlatList
-                        data={ingredients}
-                        extraData={ingredients}
-                        renderItem={
-                            ({ item, index }) => {
-                                return (
-                                    <View key={item.id} style={styles.row}>
-                                        <View style={styles.item}>
-                                            <Image
-                                                style={styles.image}
-                                                source={{ uri: item.img }}
-                                            />
-                                            <Text style={ui.text}>{item.name}</Text>
-                                        </View>
-                                        <Pressable style={{ borderWidth: 1, borderColor: "black", width: 30, height: 30, }} onPress={() => handleIngredient(index)}>
-                                            {item.selected &&
-                                                <Image style={{ display: item.selected ? "flex" : "none", width: "100%", height: "100%" }} source={require("../assets/tick.png")} />
-                                            }
-                                        </Pressable>
-                                    </View>
-                                )
-                            }}
-                    />
-
+                <View style={[ui.list, ui.wrapper, { marginTop: 32 }]}>
+                    <FlatList data={ingredients} extraData={ingredients} renderItem={renderItem} keyExtractor={(item) => item.id} />
                 </View>
             }
-
         </View>
     )
 }
@@ -101,37 +116,45 @@ export default function ManageStore() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginHorizontal: 20,
-        marginTop: 32,
-        gap: 16
+        gap: 16,
+        backgroundColor: "#fff"
     },
-
-    list: {
-        flex: 1,
-    },
-
+    
     row: {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-        gap: 8,
-        marginVertical: 8,
+        gap: 14,
+        marginVertical: 14,
     },
 
     item: {
         flexDirection: "row",
-        alignItems: "center",
-        gap: 8,
+        gap: 14,
+    },
+
+    info: {
+        gap: 4,
+        justifyContent: "center",
     },
 
     checkbox: {
-        width: 25,
-        height: 25,
+        width: 40,
+        height: 40,
+        borderWidth: 1,
+        borderColor: "black",
+        borderRadius: 100,
     },
 
     image: {
-        width: 50,
-        height: 50,
-    }
+        width: 55,
+        height: 55,
+        borderRadius: 100,
+    },
+
+    checkboxImg: {
+        width: "100%",
+        height: "100%"
+    },
 
 })

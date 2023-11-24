@@ -4,14 +4,15 @@ export const ui = {
         width: 35,
     },
     text: {
-        fontFamily: "Regular",
+        fontFamily: "Semibold",
         color: "black",
         fontSize: 16.5,
     },
     muted: {
         fontFamily: "Regular",
-        color: "black",
-        fontSize: 14,
+        color: "#949494",
+        fontSize: 13,
+        fontWeight: "bold"
     },
     h1: {
         fontSize: 60,
@@ -47,6 +48,13 @@ export const ui = {
         borderRadius: 100,
         borderColor: "#337AB7",
         backgroundColor: "rgba(51, 122, 183, 0.25)", 
-    }
+    },
 
+    wrapper: {
+        paddingHorizontal: 16,
+    },
+
+    list: {
+        flex: 1,
+    }
 }
