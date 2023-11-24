@@ -6,6 +6,7 @@ import { Image } from "expo-image";
 import { ui } from "../src/utils/styles";
 import React from "react";
 import CocktailsList from "../src/components/cocktails-list";
+import { StatusBar } from "react-native";
 
 export default function IngredientDetail() {
 
@@ -18,12 +19,14 @@ export default function IngredientDetail() {
             <View style={[ui.wrapper, { paddingBottom: 16 }]}>
                 <View style={{ alignItems: "center", gap: 16, marginBottom: 32 }}>
                     <Text style={ui.h2}>{name}</Text>
-                    <Image
-                        style={styles.image}
-                        source={img}
-                        placeholder={'|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj['}
-                        transition={1000}
-                    />
+                    <View style={styles.imageWrapper}>
+                        <Image
+                            style={styles.image}
+                            source={{ uri: img }}
+                            placeholder={'|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj['}
+                            transition={1000}
+                        />
+                    </View>
                 </View>
                 <Text style={ui.text}>Cócteles que contienen {name}:</Text>
             </View>
@@ -37,7 +40,7 @@ export default function IngredientDetail() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 40,
+        paddingTop: StatusBar.currentHeight,
         backgroundColor: "#fff"
     },
 
@@ -47,10 +50,20 @@ const styles = StyleSheet.create({
         marginTop: 32,
     },
 
+    imageWrapper: {
+        width: 135,
+        height: 135,
+        borderWidth: 1,
+        borderColor: "lightgray",
+        borderRadius: 100,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+
     image: {
         width: 120,
         height: 120,
-
-    }
+        borderRadius: 100,
+    },
 
 })

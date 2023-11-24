@@ -5,7 +5,8 @@ import getIngredients from "../src/utils/ingredients";
 import { getAsyncStorage, setAsyncStorage, } from "../src/utils/storage";
 import { Image } from "expo-image";
 import { ui } from "../src/utils/styles";
-import getCocktails from "../src/utils/cocktails";
+import getCocktails, { getCocktailsQtyByIngredient } from "../src/utils/cocktails";
+import { StatusBar } from "react-native";
 
 export default function ManageStore() {
 
@@ -78,15 +79,23 @@ export default function ManageStore() {
     }
 
     const renderItem = useCallback(({ item, index }) => (
-        <View key={item.id} style={styles.row}>
+        <View key={item.id} style={styles.row} >
             <Link asChild href={{ pathname: "/ingredient-detail", params: { id: item.id, name: item.name, img: item.img } }}>
                 <TouchableOpacity>
-                    <View style={styles.item}>
-                        <Image style={styles.image} source={{ uri: item.img }} />
-                        <View style={styles.info}>
-                            <Text style={ui.text}>{item.name}</Text>
+                    <View style={[styles.row, { borderBottomWidth: 0, paddingVertical: 0, paddingHorizontal: 0}]}>
+                        
+                        <View style={styles.imageWrapper}>
+                            <Image
+                                style={styles.image}
+                                source={{ uri: item.img }}
+                                placeholder={'|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj['}
+                                transition={1000}
+                            />
+                        </View>
+                        <View style={styles.column}>
+                            <Text style={ui.h4}>{item.name}</Text>
                             {
-                                renderQty(item.id) > 0 && <Text style={ui.muted}>Se usa en {renderQty(item.id)} cócteles</Text>
+                                getCocktailsQtyByIngredient(item.id) > 0 && <Text style={ui.muted}>Se usa en {getCocktailsQtyByIngredient(item.id)} cócteles</Text>
                             }
                         </View>
                     </View>
@@ -104,7 +113,7 @@ export default function ManageStore() {
         <View style={styles.container}>
             <Stack.Screen options={{ title: "Gestiona tus ingredientes", headerShown: true }} />
             {!loading &&
-                <View style={[ui.list, ui.wrapper, { marginTop: 32 }]}>
+                <View style={ui.list}>
                     <FlatList data={ingredients} extraData={ingredients} renderItem={renderItem} keyExtractor={(item) => item.id} />
                 </View>
             }
@@ -117,15 +126,20 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         gap: 16,
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
+        paddingTop: StatusBar.currentHeight,
     },
-    
+
     row: {
         flexDirection: "row",
-        justifyContent: "space-between",
         alignItems: "center",
-        gap: 14,
-        marginVertical: 14,
+        justifyContent: "space-between",
+        paddingVertical: 16,
+        paddingHorizontal: 12,
+        gap: 16,
+        borderBottomWidth: 1,
+        borderColor: "#e8e8e8",
+
     },
 
     item: {
@@ -155,6 +169,22 @@ const styles = StyleSheet.create({
     checkboxImg: {
         width: "100%",
         height: "100%"
+    },
+
+    imageWrapper: {
+        width: 70,
+        height: 70,
+        borderWidth: 1,
+        borderColor: "lightgray",
+        borderRadius: 100,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+
+    image: {
+        width: 60,
+        height: 60,
+        borderRadius: 100,
     },
 
 })

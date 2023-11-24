@@ -9,6 +9,7 @@ import { Image } from "expo-image";
 import { getCocktailsQtyByIngredient, getIngredientsFromCocktail } from "../utils/cocktails";
 import { StyleSheet } from "react-native";
 import { ui } from "../utils/styles";
+import Animated, { SlideInDown } from "react-native-reanimated";
 
 export default function IngredientsList({ id }) {
 
@@ -23,7 +24,7 @@ export default function IngredientsList({ id }) {
         fridge = JSON.parse(fridge);
 
         if (id) {
-            const ingredientsAux = getIngredientsFromCocktail(id);           
+            const ingredientsAux = getIngredientsFromCocktail(id);
 
             if (fridge) {
                 for (let i = 0; i < fridge.length; i++) {
@@ -44,23 +45,30 @@ export default function IngredientsList({ id }) {
     }
 
 
-    const renderItem = ({ item }) => (
-        <Link asChild key={item.id} style={styles.row} href={{ pathname: "/ingredient-detail", params: { id: item.id, name: item.name, img: item.img } }}>
-            <TouchableOpacity>
-                <Image
-                    style={styles.image}
-                    source={item.img}
-                    placeholder={'|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj['}
-                    transition={1000}
-                />
-                <View style={styles.info}>
-                    <Text style={ui.text}>{item.name}</Text>
-                    {
-                        getCocktailsQtyByIngredient(item.id) > 0 && <Text style={ui.muted}>Prepara {getCocktailsQtyByIngredient(item.id)} cócteles con esto</Text>
-                    }
-                </View>
-            </TouchableOpacity>
-        </Link>
+    const renderItem = ({ item, index }) => (
+        <Animated.View key={item.id} entering={SlideInDown.duration(850).delay(index * 50)}>
+            <Link asChild href={{ pathname: "/ingredient-detail", params: { id: item.id, name: item.name, img: item.img } }}>
+                <TouchableOpacity>
+                    <View style={styles.row}>
+                        <View style={styles.imageWrapper}>
+                            <Image
+                                style={styles.image}
+                                source={{ uri: item.img }}
+                                placeholder={'|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj['}
+                                transition={1000}
+                            />
+                        </View>
+                        <View style={styles.column}>
+                            <Text style={ui.h4}>{item.name}</Text>
+                            {
+                                getCocktailsQtyByIngredient(item.id) > 0 && <Text style={ui.muted}>Puedes preparar {getCocktailsQtyByIngredient(item.id)} cócteles con esto</Text>
+                            }
+
+                        </View>
+                    </View>
+                </TouchableOpacity>
+            </Link>
+        </Animated.View>
     )
 
     return (
@@ -87,19 +95,33 @@ const styles = StyleSheet.create({
     row: {
         flexDirection: "row",
         alignItems: "center",
-        gap: 14,
-        marginVertical: 14,
+        paddingVertical: 16,
+        paddingHorizontal: 12,
+        gap: 16,
+        borderBottomWidth: 1,
+        borderColor: "#e8e8e8",
+
     },
 
-    info: {
-        gap: 4,
+    column: {
+        gap: 8,
+        alignItems: "flex-start",
+    },
+
+    imageWrapper: {
+        width: 70,
+        height: 70,
+        borderWidth: 1,
+        borderColor: "lightgray",
+        borderRadius: 100,
         justifyContent: "center",
+        alignItems: "center"
     },
 
     image: {
-        width: 55,
-        height: 55,
+        width: 60,
+        height: 60,
         borderRadius: 100,
-    }
+    },
 
 })

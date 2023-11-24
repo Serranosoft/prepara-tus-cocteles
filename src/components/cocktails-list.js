@@ -9,94 +9,78 @@ import { StyleSheet } from "react-native";
 import { getAsyncStorage } from "../utils/storage";
 import { Link, useFocusEffect } from "expo-router";
 import { ui } from "../utils/styles";
-import Animated, { SlideInDown, withSpring } from "react-native-reanimated";
-import { SharedTransition } from 'react-native-reanimated';
+import Animated, { SlideInDown } from "react-native-reanimated";
 import { TouchableOpacity } from "react-native";
 
-const colors = ["#EDB285", "#BED09D", "#ECD7B1", "#E6A7A8", "#EAD875", "#DCECF5", "#65d0be"]
 export default function CocktailsList({ id }) {
 
     const [cocktails, setCocktails] = useState(getCocktails());
-    const [cocktailsHighlighted, setCocktailsHighlighted] = useState(0);
-    const [store, setStore] = useState();
+    const [doableQty, setDoableQty] = useState(0);
+    const [fridge, setFridge] = useState();
 
     // Obtener todos los ingredientes que tiene el usuario para saber cuál puede hacer
     useFocusEffect(
         useCallback(() => {
-            fetchStore();
+            getFridge();
         }, [])
     );
 
     // Eliminar todos los cocteles que no contengan el ingrediente con el id == id.
     useEffect(() => {
-        if (id && store) {
+        if (id && fridge) {
             const result = cocktails.filter(cocktail => cocktail.ingredients.some(ingredient => ingredient.id === parseInt(id)));
-            result.length > 0 && sortCocktails(result);
-        } else if (store) {
-            sortCocktails(cocktails);
+            result.length > 0 && handleCocktails(result);
+        } else if (fridge) {
+            handleCocktails(cocktails);
         }
-    }, [store])
+    }, [fridge])
+
+    async function getFridge() {
+        let fridge = await getAsyncStorage();
+        fridge = JSON.parse(fridge);
+        setFridge(fridge);
+    }
+
+    function handleCocktails() {
+        if (!fridge) {
+            return
+        }
+
+        // Ordena los cócteles por coincidencia
+        const cocktailsSorted = [...cocktails].sort((cocktail1, cocktail2) => {
+            const coincidence1 = isDoable(cocktail1.ingredients).highlight;
+            const coincidence2 = isDoable(cocktail2.ingredients).highlight;
+            return coincidence2 - coincidence1;
+        });
+
+        cocktailsSorted.forEach(async cocktail => {
+            const { coincidenceQty, highlight } = isDoable(cocktail.ingredients);
+            cocktail.highlight = highlight
+            cocktail.coincidenceQty = coincidenceQty
+        });
+
+        setCocktails(cocktailsSorted);
+        setDoableQty(cocktailsSorted.filter(cocktail => cocktail.highlight === true).length);
+    }
 
 
-    function sortCocktails(cocktails) {
-        if (store) {
+    function isDoable(ingredients) {
+        const accomplish = Math.ceil(0.75 * ingredients.length);
+        const coincidences = ingredients.filter(ingredient => fridge.includes(ingredient.id));
 
-            // Ordena los cócteles por coincidencia
-            const cocktailsSorted = [...cocktails].sort((cocktail1, cocktail2) => {
-                const coincidence1 = coincidence(cocktail1.ingredients);
-                const coincidence2 = coincidence(cocktail2.ingredients);
-                return coincidence2 - coincidence1;
-            });
-
-            // Agregamos una nueva propiedad a los cócteles
-            cocktailsSorted.forEach(cocktail => {
-                cocktail.highlight = coincidence(cocktail.ingredients);
-            });
-
-            const cocktailsHighlighted = cocktailsSorted.filter(obj => obj.highlight === true);
-            setCocktailsHighlighted(cocktailsHighlighted.length);
-            setCocktails(cocktailsSorted);
+        return {
+            coincidenceQty: coincidences.length,
+            highlight: coincidences.length >= accomplish,
         }
     }
 
-    function coincidence(ingredients) {
-        const coincidencePoints = Math.ceil(0.75 * ingredients.length);
-        const storeParsed = JSON.parse(store);
-
-        const coincidences = ingredients.filter(ingredient =>
-            storeParsed.includes(ingredient.id)
-        );
-
-        return coincidences.length >= coincidencePoints;
-    }
-
-    async function fetchStore() {
-        let result = await getAsyncStorage();
-        setStore(result);
-    }
-
-    function generateRandomColor() {
-        return colors[Math.floor(Math.random() * colors.length)];
-    }
 
     const renderItem = ({ item, index }) => (
-        <Animated.View entering={SlideInDown.duration(850).delay(index * 50)}>
-            <Link asChild key={item.id} href={{ pathname: "/cocktail-detail", params: { id: item.id, name: item.name, img: item.img } }}>
-                <TouchableOpacity key={item.id + 2}>
-                    <View style={item.highlight ? [styles.row, { backgroundColor: generateRandomColor() }] : [styles.row, styles.noHighlighted]}>
-                        <View style={styles.content}>
-
-                            <View>
-                                <Text style={ui.h4}>{item.name}</Text>
-                                <Text style={[ui.muted, { width: 245, color: "black" }]} numberOfLines={1}>
-                                    {item.ingredients.map((ingr, index) => (
-                                        <React.Fragment key={index}>
-                                            {ingr.name}{index < item.ingredients.length - 1 ? ', ' : ''}
-                                        </React.Fragment>
-                                    ))}
-                                </Text>
-                            </View>
-
+        <Animated.View key={item.id} entering={SlideInDown.duration(850).delay(index * 50)}>
+            <Link asChild key={item.id} href={{ pathname: "/cocktail-detail", params: { id: item.id, name: item.name, img: item.img, steps: item.steps } }}>
+                <TouchableOpacity>
+                    <View style={[styles.row, { borderBottomWidth: index + 1 === doableQty ? 0 : 1 }]}>
+                        <View style={styles.imageWrapper}>
                             <Image
                                 style={styles.image}
                                 source={{ uri: item.img }}
@@ -104,11 +88,34 @@ export default function CocktailsList({ id }) {
                                 transition={1000}
                             />
                         </View>
+                        <View style={styles.column}>
+                            <Text style={ui.h4}>{item.name}</Text>
+                            <Text style={[ui.muted, { width: 270 }]} numberOfLines={2}>
+                                {item.ingredients.map((ingr, index) => (
+                                    <React.Fragment key={index}>
+                                        {ingr.name}{index < item.ingredients.length - 1 ? ', ' : ''}
+                                    </React.Fragment>
+                                ))}
+                            </Text>
+                            {
+                                item.highlight ?
+                                    <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
+                                        <View style={{ width: 17, height: 17, backgroundColor: "#3DB36E", borderRadius: 100 }}></View>
+                                        <Text><Text style={{ fontWeight: "bold" }}>{item.coincidenceQty}/{item.ingredients.length}</Text> ingredientes</Text>
+                                    </View>
+                                    :
+                                    <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
+                                        <View style={{ width: 17, height: 17, backgroundColor: "#EECA5D", borderRadius: 100 }}></View>
+                                        <Text><Text style={{ fontWeight: "bold" }}>{item.coincidenceQty}/{item.ingredients.length}</Text> ingredientes</Text>
+                                    </View>
+
+                            }
+                        </View>
                     </View>
                 </TouchableOpacity>
             </Link >
             {
-                !id && (index + 1) === cocktailsHighlighted &&
+                !id && (index + 1) === doableQty &&
                 <View style={styles.alert}>
                     <Text style={[ui.text, { textAlign: "center", maxWidth: 320 }]}>Necesitas mas ingredientes para los cócteles indicados a continuación</Text>
                     <MaterialCommunityIcons name="emoticon-sad-outline" size={30} color="#000" />
@@ -132,29 +139,29 @@ export default function CocktailsList({ id }) {
 const styles = StyleSheet.create({
     row: {
         flexDirection: "row",
-        alignItems: "center",
-        marginVertical: 8,
-        marginHorizontal: 8,
+        alignItems: "flex-start",
         paddingVertical: 16,
-        paddingHorizontal: 20,
-        gap: 8,
-        justifyContent: "space-between",
-        borderRadius: 16,
+        paddingHorizontal: 12,
+        gap: 16,
+        borderBottomWidth: 1,
+        borderColor: "#e8e8e8",
 
     },
 
-    content: {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
+    column: {
         gap: 8,
-        flex: 1,
+        alignItems: "flex-start",
+
     },
 
-    ingredients: {
-        flexDirection: "row",
-        gap: 2,
-        alignItems: "center",
+    imageWrapper: {
+        width: 70,
+        height: 70,
+        borderWidth: 1,
+        borderColor: "lightgray",
+        borderRadius: 100,
+        justifyContent: "center",
+        alignItems: "center"
     },
 
     image: {
@@ -168,19 +175,14 @@ const styles = StyleSheet.create({
         padding: 20,
         width: "100%",
         backgroundColor: "#cccccc",
+        backgroundColor: "#337AB7",
         alignItems: "center",
         marginTop: 8,
-        marginBottom: 24
-    },
-
-    noHighlighted: {
-        borderTopWidth: 1,
-        borderColor: "#cccccc",
-        marginTop: 0,
         marginBottom: 8,
-        paddingVertical: 16,
-        paddingTop: 16,
-        paddingBottom: 8,
+        borderWidth: 3,
+        borderColor: "#337AB7",
+        backgroundColor: "rgba(51, 122, 183, 0.25)",
+        alignSelf: "center",
     }
 
 })

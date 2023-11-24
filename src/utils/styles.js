@@ -10,9 +10,8 @@ export const ui = {
     },
     muted: {
         fontFamily: "Regular",
-        color: "#949494",
+        color: "#7a7a7a",
         fontSize: 13,
-        fontWeight: "bold"
     },
     h1: {
         fontSize: 60,
@@ -23,12 +22,12 @@ export const ui = {
         fontFamily: "Semibold",
         color: "black",
         fontSize: 32,
-        textAlign: "center"
     },
     h3: {
         fontFamily: "Regular",
         color: "black",
         fontSize: 25,
+        fontWeight: "bold"
     },
     h4: {
         fontFamily: "Semibold",

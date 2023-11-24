@@ -3,7 +3,7 @@
         {
             "id": 1,
             "name": "Cóctel 1",
-            "description": "Descripción de cóctel 1",
+            "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
             "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-9.jpg",
             "ingredients": [
                 {
@@ -26,7 +26,7 @@
         {
             "id": 2,
             "name": "Cóctel 2",
-            "description": "Descripción de cóctel 2",
+            "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
             "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-5.jpg",
             "ingredients": [
                 {
@@ -59,7 +59,7 @@
         {
             "id": 3,
             "name": "Cóctel 3",
-            "description": "Descripción de cóctel 3",
+            "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
             "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-1.jpg",
             "ingredients": [
                 {
@@ -82,7 +82,7 @@
         {
             "id": 4,
             "name": "Cóctel 4",
-            "description": "Descripción de cóctel 4",
+            "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
             "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-2.jpg",
             "ingredients": [
                 {
@@ -120,7 +120,7 @@
         {
             "id": 5,
             "name": "Cóctel 5",
-            "description": "Descripción de cóctel 5",
+            "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
             "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-4.jpg",
             "ingredients": [
                 {
@@ -153,7 +153,7 @@
         {
             "id": 6,
             "name": "Cóctel 6",
-            "description": "Descripción de cóctel 6",
+            "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
             "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-8.jpg",
             "ingredients": [
                 {
@@ -186,7 +186,7 @@
         {
             "id": 7,
             "name": "Cóctel 7",
-            "description": "Descripción de cóctel 7",
+            "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
             "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-7.jpg",
             "ingredients": [
                 {
