@@ -61,7 +61,7 @@ export default function IngredientsList({ id }) {
                         <View style={styles.column}>
                             <Text style={ui.h4}>{item.name}</Text>
                             {
-                                getCocktailsQtyByIngredient(item.id) > 0 && <Text style={ui.muted}>Puedes preparar {getCocktailsQtyByIngredient(item.id)} cócteles con esto</Text>
+                                getCocktailsQtyByIngredient(item.id) > 0 ? <Text style={ui.muted}>Puedes preparar {getCocktailsQtyByIngredient(item.id)} cócteles con esto</Text> : <Text style={ui.muted}>No existen cócteles con este ingrediente</Text>
                             }
 
                         </View>

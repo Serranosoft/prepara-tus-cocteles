@@ -17,6 +17,7 @@ export default function CocktailsList({ id }) {
     const [cocktails, setCocktails] = useState(getCocktails());
     const [doableQty, setDoableQty] = useState(0);
     const [fridge, setFridge] = useState();
+    const [noCocktailsFound, setNoCocktailsFound] = useState(false);
 
     // Obtener todos los ingredientes que tiene el usuario para saber cuál puede hacer
     useFocusEffect(
@@ -29,7 +30,13 @@ export default function CocktailsList({ id }) {
     useEffect(() => {
         if (id && fridge) {
             const result = cocktails.filter(cocktail => cocktail.ingredients.some(ingredient => ingredient.id === parseInt(id)));
-            result.length > 0 && handleCocktails(result);
+
+            if (result.length > 0) {
+                handleCocktails(result);
+            } else {
+                setNoCocktailsFound(true);
+            }
+
         } else if (fridge) {
             handleCocktails(cocktails);
         }
@@ -42,9 +49,6 @@ export default function CocktailsList({ id }) {
     }
 
     function handleCocktails() {
-        if (!fridge) {
-            return
-        }
 
         // Ordena los cócteles por coincidencia
         const cocktailsSorted = [...cocktails].sort((cocktail1, cocktail2) => {
@@ -125,14 +129,19 @@ export default function CocktailsList({ id }) {
     )
 
     return (
-        <FlatList
-            keyExtractor={(item) => item.id.toString()}
-            contentContainerStyle={{ paddingVertical: 8 }}
-            data={cocktails}
-            numColumns={1}
-            initialNumToRender={10}
-            renderItem={renderItem}
-        />
+        noCocktailsFound ?
+            <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+                <Text style={ui.muted}>No existen cócteles con este ingrediente</Text>
+            </View>
+            :
+            <FlatList
+                keyExtractor={(item) => item.id.toString()}
+                contentContainerStyle={{ paddingVertical: 8 }}
+                data={cocktails}
+                numColumns={1}
+                initialNumToRender={10}
+                renderItem={renderItem}
+            />
     )
 }
 
