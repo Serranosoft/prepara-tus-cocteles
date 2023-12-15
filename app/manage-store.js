@@ -1,18 +1,16 @@
-import { FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Link, Stack } from "expo-router";
-import getIngredients from "../src/utils/ingredients";
+import { FlatList, StyleSheet, View } from "react-native";
+import React, { useEffect, useRef, useState } from "react";
+import { Stack } from "expo-router";
+import { getIngredients } from "../src/utils/ingredients";
 import { getAsyncStorage, setAsyncStorage, } from "../src/utils/storage";
-import { Image } from "expo-image";
 import { ui } from "../src/utils/styles";
-import getCocktails, { getCocktailsQtyByIngredient } from "../src/utils/cocktails";
 import { StatusBar } from "react-native";
+import ManageStoreItem from "../src/components/manage-store-item";
 
 export default function ManageStore() {
 
     // Array con los ingredientes actualizados
     const [ingredients, setIngredients] = useState(getIngredients());
-    const cocktails = useRef(getCocktails())
 
     const storage = useRef();
     const [loading, setLoading] = useState(true);
@@ -63,58 +61,14 @@ export default function ManageStore() {
         setAsyncStorage(JSON.stringify(storage.current));
     }
 
-
-
-    function renderQty(id) {
-        let incremental = 0;
-        for (let i = 0; i < cocktails.current.length; i++) {
-            for (let j = 0; j < cocktails.current[i].ingredients.length; j++) {
-                if (cocktails.current[i].ingredients[j].id === id) {
-                    incremental++;
-                }
-            }
-        }
-
-        return incremental;
-    }
-
-    const renderItem = useCallback(({ item, index }) => (
-        <View key={item.id} style={styles.row} >
-            <Link asChild href={{ pathname: "/ingredient-detail", params: { id: item.id, name: item.name, img: item.img } }}>
-                <TouchableOpacity>
-                    <View style={[styles.row, { borderBottomWidth: 0, paddingVertical: 0, paddingHorizontal: 0}]}>
-                        
-                        <View style={styles.imageWrapper}>
-                            <Image
-                                style={styles.image}
-                                source={{ uri: item.img }}
-                                placeholder={'|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj['}
-                                transition={1000}
-                            />
-                        </View>
-                        <View style={styles.column}>
-                            <Text style={ui.h4}>{item.name}</Text>
-                            {
-                                getCocktailsQtyByIngredient(item.id) > 0 && <Text style={ui.muted}>Se usa en {getCocktailsQtyByIngredient(item.id)} cócteles</Text>
-                            }
-                        </View>
-                    </View>
-                </TouchableOpacity>
-            </Link>
-            <TouchableOpacity style={styles.checkbox} onPress={() => handleIngredient(index)}>
-                {item.selected &&
-                    <Image style={[styles.checkboxImg, { display: item.selected ? "flex" : "none" }]} source={require("../assets/tick.png")} />
-                }
-            </TouchableOpacity>
-        </View>
-    ), [])
+    const renderItem = ({ item, index }) => <ManageStoreItem item={item} index={index} handleIngredient={handleIngredient} />
 
     return (
         <View style={styles.container}>
             <Stack.Screen options={{ title: "Gestiona tus ingredientes", headerShown: true }} />
             {!loading &&
                 <View style={ui.list}>
-                    <FlatList data={ingredients} extraData={ingredients} renderItem={renderItem} keyExtractor={(item) => item.id} />
+                    <FlatList data={ingredients} renderItem={renderItem} keyExtractor={(item) => item.id} removeClippedSubviews={true} />
                 </View>
             }
         </View>
@@ -135,7 +89,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-between",
         paddingVertical: 16,
-        paddingHorizontal: 12,
+        paddingHorizontal: 16,
         gap: 16,
         borderBottomWidth: 1,
         borderColor: "#e8e8e8",

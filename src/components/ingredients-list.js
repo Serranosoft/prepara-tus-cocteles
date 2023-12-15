@@ -1,34 +1,63 @@
 import { useEffect, useState } from "react";
 import { FlatList, View } from "react-native";
-import getIngredients from "../utils/ingredients";
-import { Text } from "react-native";
+import { getIngredients } from "../utils/ingredients";
 import { getAsyncStorage } from "../utils/storage";
-import { Link } from "expo-router";
-import { TouchableOpacity } from "react-native";
-import { Image } from "expo-image";
-import { getCocktailsQtyByIngredient, getIngredientsFromCocktail } from "../utils/cocktails";
-import { StyleSheet } from "react-native";
-import { ui } from "../utils/styles";
-import Animated, { SlideInDown } from "react-native-reanimated";
+import { getIngredientDataFromId, getIngredientsFromCocktail, getIngredientsIdsFromCocktail } from "../utils/cocktails";
+import IngredientListItem from "./ingredient-list-item";
 
 export default function IngredientsList({ id }) {
 
     const [ingredients, setIngredients] = useState(getIngredients());
 
     useEffect(() => {
-        handleIngredients();
-    }, [])
+        if (ingredients) {
+            handleIngredients();
+        }
+    }, [ingredients])
 
     async function handleIngredients() {
         let fridge = await getAsyncStorage();
         fridge = JSON.parse(fridge);
 
+
+        // Si recibo id entonces tengo que saber los ingredientes del cocktail.id = id.
         if (id) {
+            const ingredientsAux = [];
+            const ingredientsIds = getIngredientsIdsFromCocktail(id);
+            ingredientsIds.forEach(id => {
+                ingredientsAux.push(getIngredientDataFromId(id));
+            })
+
+            console.log(ingredientsAux);
+
+            if (fridge) {
+                // Si hay fridge, debo recorrer todo el fridge y el que coincida con ingredientsAux debo ponerlo como selected.
+
+
+
+                /* for (let i = 0; i < fridge.length; i++) {
+                    let index = ingredients.findIndex(ingredient => ingredient.id === parseInt(fridge[i]));
+                    if (index > -1) {
+                        console.log(index);
+                        ingredientsAux[index].selected = true;
+                    }
+                }
+                setIngredients(ingredientsAux); */
+            } else {
+                if (fridge) {
+                    const names = ingredients.filter(ingredient => fridge.includes(ingredient.id));
+                    setIngredients(names);
+                }
+            }
+        }
+
+
+        /* if (id) {
             const ingredientsAux = getIngredientsFromCocktail(id);
 
             if (fridge) {
                 for (let i = 0; i < fridge.length; i++) {
-                    let index = ingredients.findIndex(ingredient => ingredient.id.toString() === fridge[i]);
+                    let index = ingredients.findIndex(ingredient => ingredient.id === parseInt(fridge[i]));
                     if (index > -1) {
                         ingredientsAux[index].selected = true;
                     }
@@ -41,35 +70,10 @@ export default function IngredientsList({ id }) {
                 const names = ingredients.filter(ingredient => fridge.includes(ingredient.id));
                 setIngredients(names);
             }
-        }
+        } */
     }
 
-
-    const renderItem = ({ item, index }) => (
-        <Animated.View key={item.id} entering={SlideInDown.duration(850).delay(index * 50)}>
-            <Link asChild href={{ pathname: "/ingredient-detail", params: { id: item.id, name: item.name, img: item.img } }}>
-                <TouchableOpacity>
-                    <View style={styles.row}>
-                        <View style={styles.imageWrapper}>
-                            <Image
-                                style={styles.image}
-                                source={{ uri: item.img }}
-                                placeholder={'|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj['}
-                                transition={1000}
-                            />
-                        </View>
-                        <View style={styles.column}>
-                            <Text style={ui.h4}>{item.name}</Text>
-                            {
-                                getCocktailsQtyByIngredient(item.id) > 0 ? <Text style={ui.muted}>Puedes preparar {getCocktailsQtyByIngredient(item.id)} cócteles con esto</Text> : <Text style={ui.muted}>No existen cócteles con este ingrediente</Text>
-                            }
-
-                        </View>
-                    </View>
-                </TouchableOpacity>
-            </Link>
-        </Animated.View>
-    )
+    const renderItem = ({ item, index }) => <IngredientListItem item={item} index={index} />
 
     return (
         <View>
@@ -84,44 +88,3 @@ export default function IngredientsList({ id }) {
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        gap: 16,
-        backgroundColor: "#fff"
-    },
-
-    row: {
-        flexDirection: "row",
-        alignItems: "center",
-        paddingVertical: 16,
-        paddingHorizontal: 12,
-        gap: 16,
-        borderBottomWidth: 1,
-        borderColor: "#e8e8e8",
-
-    },
-
-    column: {
-        gap: 8,
-        alignItems: "flex-start",
-    },
-
-    imageWrapper: {
-        width: 70,
-        height: 70,
-        borderWidth: 1,
-        borderColor: "lightgray",
-        borderRadius: 100,
-        justifyContent: "center",
-        alignItems: "center"
-    },
-
-    image: {
-        width: 60,
-        height: 60,
-        borderRadius: 100,
-    },
-
-})

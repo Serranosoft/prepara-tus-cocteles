@@ -11,6 +11,8 @@ import { Link, useFocusEffect } from "expo-router";
 import { ui } from "../utils/styles";
 import Animated, { SlideInDown } from "react-native-reanimated";
 import { TouchableOpacity } from "react-native";
+import { getIngredientNameById } from "../utils/ingredients";
+import CocktailsListItem from "./cocktails-list-item";
 
 export default function CocktailsList({ id }) {
 
@@ -29,7 +31,7 @@ export default function CocktailsList({ id }) {
     // Eliminar todos los cocteles que no contengan el ingrediente con el id == id.
     useEffect(() => {
         if (id && fridge) {
-            const result = cocktails.filter(cocktail => cocktail.ingredients.some(ingredient => ingredient.id === parseInt(id)));
+            const result = cocktails.filter(cocktail => cocktail.ingredients.some(ingredient => ingredient === parseInt(id)));
 
             if (result.length > 0) {
                 handleCocktails(result);
@@ -70,7 +72,7 @@ export default function CocktailsList({ id }) {
 
     function isDoable(ingredients) {
         const accomplish = Math.ceil(0.75 * ingredients.length);
-        const coincidences = ingredients.filter(ingredient => fridge.includes(ingredient.id));
+        const coincidences = ingredients.filter(ingredient => fridge.includes(ingredient));
 
         return {
             coincidenceQty: coincidences.length,
@@ -78,55 +80,7 @@ export default function CocktailsList({ id }) {
         }
     }
 
-
-    const renderItem = ({ item, index }) => (
-        <Animated.View key={item.id} entering={SlideInDown.duration(850).delay(index * 50)}>
-            <Link asChild key={item.id} href={{ pathname: "/cocktail-detail", params: { id: item.id, name: item.name, img: item.img, steps: item.steps } }}>
-                <TouchableOpacity>
-                    <View style={[styles.row, { borderBottomWidth: index + 1 === doableQty ? 0 : 1 }]}>
-                        <View style={styles.imageWrapper}>
-                            <Image
-                                style={styles.image}
-                                source={{ uri: item.img }}
-                                placeholder={'|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj['}
-                                transition={1000}
-                            />
-                        </View>
-                        <View style={styles.column}>
-                            <Text style={ui.h4}>{item.name}</Text>
-                            <Text style={[ui.muted, { width: 270 }]} numberOfLines={2}>
-                                {item.ingredients.map((ingr, index) => (
-                                    <React.Fragment key={index}>
-                                        {ingr.name}{index < item.ingredients.length - 1 ? ', ' : ''}
-                                    </React.Fragment>
-                                ))}
-                            </Text>
-                            {
-                                item.highlight ?
-                                    <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
-                                        <View style={{ width: 17, height: 17, backgroundColor: "#3DB36E", borderRadius: 100 }}></View>
-                                        <Text><Text style={{ fontWeight: "bold" }}>{item.coincidenceQty}/{item.ingredients.length}</Text> ingredientes</Text>
-                                    </View>
-                                    :
-                                    <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
-                                        <View style={{ width: 17, height: 17, backgroundColor: "#EECA5D", borderRadius: 100 }}></View>
-                                        <Text><Text style={{ fontWeight: "bold" }}>{item.coincidenceQty}/{item.ingredients.length}</Text> ingredientes</Text>
-                                    </View>
-
-                            }
-                        </View>
-                    </View>
-                </TouchableOpacity>
-            </Link >
-            {
-                !id && (index + 1) === doableQty &&
-                <View style={styles.alert}>
-                    <Text style={[ui.text, { textAlign: "center", maxWidth: 320 }]}>Necesitas mas ingredientes para los cócteles indicados a continuación</Text>
-                    <MaterialCommunityIcons name="emoticon-sad-outline" size={30} color="#000" />
-                </View>
-            }
-        </Animated.View>
-    )
+    const renderItem = ({ item, index }) => <CocktailsListItem item={item} index={index} doableQty={doableQty} id={id} />
 
     return (
         noCocktailsFound ?

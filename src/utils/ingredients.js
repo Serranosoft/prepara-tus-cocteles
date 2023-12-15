@@ -1,5 +1,9 @@
 import data from "../../ingredients.json";
 
-export default function getIngredients() {
+export function getIngredients() {
     return data.ingredients;
+}
+
+export function getIngredientNameById(id) {
+    return data.ingredients.find(ingredient => ingredient.id === id).name;
 }

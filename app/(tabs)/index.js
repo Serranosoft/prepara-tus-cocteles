@@ -8,7 +8,6 @@ import { getAsyncStorage } from '../../src/utils/storage';
 import { Image } from 'expo-image';
 import { ui } from "../../src/utils/styles";
 import { FlatList } from 'react-native';
-import getIngredients from '../../src/utils/ingredients';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import getCocktails from '../../src/utils/cocktails';
 import { TouchableOpacity } from 'react-native';
@@ -30,7 +29,7 @@ export default function Root() {
 
     return (
         <View style={styles.container}>
-
+            
             <Text style={[ui.h4, { paddingHorizontal: 16 }]}>Tienes {qty} ingredientes en tu nevera</Text>
             <View style={ui.list}>
                 <IngredientsList />

@@ -5,216 +5,49 @@
             "name": "Cóctel 1",
             "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
             "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-9.jpg",
-            "ingredients": [
-                {
-                    "id": 1,
-                    "name": "Ingrediente 1",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-5.jpg"
-                },
-                {
-                    "id": 2,
-                    "name": "Ingrediente 2",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-1.jpg"
-                },
-                {
-                    "id": 3,
-                    "name": "Ingrediente 3",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-9.jpg"
-                }
-            ]
+            "ingredients": [1, 2, 3]
         },
         {
             "id": 2,
             "name": "Cóctel 2",
             "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
             "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-5.jpg",
-            "ingredients": [
-                {
-                    "id": 4,
-                    "name": "Ingrediente 3",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-9.jpg"
-                },
-                {
-                    "id": 1,
-                    "name": "Ingrediente 1",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-3.jpg"
-                },
-                {
-                    "id": 6,
-                    "name": "Ingrediente 5",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-9.jpg"
-                },
-                {
-                    "id": 7,
-                    "name": "Ingrediente 4",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-4.jpg"
-                },
-                {
-                    "id": 9,
-                    "name": "Ingrediente 2",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-9.jpg"
-                }
-            ]
+            "ingredients": [4,1,6,7,9]
         },
         {
             "id": 3,
             "name": "Cóctel 3",
             "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
             "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-1.jpg",
-            "ingredients": [
-                {
-                    "id": 1,
-                    "name": "Ingrediente 1",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-9.jpg"
-                },
-                {
-                    "id": 2,
-                    "name": "Ingrediente 2",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-1.jpg"
-                },
-                {
-                    "id": 3,
-                    "name": "Ingrediente 3",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-9.jpg"
-                }
-            ]
+            "ingredients": [1,2,3]
         },
         {
             "id": 4,
             "name": "Cóctel 4",
             "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
             "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-2.jpg",
-            "ingredients": [
-                {
-                    "id": 4,
-                    "name": "Ingrediente 3",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-9.jpg"
-                },
-                {
-                    "id": 1,
-                    "name": "Ingrediente 1",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-9.jpg"
-                },
-                {
-                    "id": 6,
-                    "name": "Ingrediente 5",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-5.jpg"
-                },
-                {
-                    "id": 7,
-                    "name": "Ingrediente 4",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-4.jpg"
-                },
-                {
-                    "id": 1,
-                    "name": "Ingrediente 1",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-9.jpg"
-                },
-                {
-                    "id": 9,
-                    "name": "Ingrediente 2",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-2.jpg"
-                }
-            ]
+            "ingredients": [4,1,6,7,9,1]
         },
         {
             "id": 5,
             "name": "Cóctel 5",
             "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
             "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-4.jpg",
-            "ingredients": [
-                {
-                    "id": 4,
-                    "name": "Ingrediente 3",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-6.jpg"
-                },
-                {
-                    "id": 6,
-                    "name": "Ingrediente 5",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-9.jpg"
-                },
-                {
-                    "id": 7,
-                    "name": "Ingrediente 4",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-8.jpg"
-                },
-                {
-                    "id": 1,
-                    "name": "Ingrediente 1",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-9.jpg"
-                },
-                {
-                    "id": 9,
-                    "name": "Ingrediente 2",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-9.jpg"
-                }
-            ]
+            "ingredients": [4,6,7,9,1]
         },
         {
             "id": 6,
             "name": "Cóctel 6",
             "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
             "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-8.jpg",
-            "ingredients": [
-                {
-                    "id": 4,
-                    "name": "Ingrediente 3",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-7.jpg"
-                },
-                {
-                    "id": 6,
-                    "name": "Ingrediente 5",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-6.jpg"
-                },
-                {
-                    "id": 7,
-                    "name": "Ingrediente 4",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-9.jpg"
-                },
-                {
-                    "id": 1,
-                    "name": "Ingrediente 1",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-4.jpg"
-                },
-                {
-                    "id": 9,
-                    "name": "Ingrediente 2",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-3.jpg"
-                }
-            ]
+            "ingredients": [4,6,7,1,9]
         },
         {
             "id": 7,
             "name": "Cóctel 7",
             "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
             "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-7.jpg",
-            "ingredients": [
-                {
-                    "id": 4,
-                    "name": "Ingrediente 3",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-5.jpg"
-                },
-                {
-                    "id": 1,
-                    "name": "Ingrediente 1",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-4.jpg"
-                },
-                {
-                    "id": 6,
-                    "name": "Ingrediente 5",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-9.jpg"
-                },
-                {
-                    "id": 7,
-                    "name": "Ingrediente 4",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-1.jpg"
-                },
-                {
-                    "id": 9,
-                    "name": "Ingrediente 2",
-                    "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-7.jpg"
-                }
-            ]
+            "ingredients": [4,1,6,7,9]
         }
     ]
 }
