@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { Image, View } from "react-native";
 import { Text } from "react-native";
 import { Link } from "expo-router";
 import { TouchableOpacity } from "react-native";
@@ -8,8 +8,8 @@ import { ui } from "../utils/styles";
 import Animated, { SlideInDown } from "react-native-reanimated";
 import { memo } from "react";
 
-function IngredientListItem({ item, index }) {
-    
+function IngredientListItem({ item, index, showTick }) {
+
     return (
         <Animated.View key={item.id} entering={SlideInDown.duration(850).delay(index * 50)}>
             <Link asChild href={{ pathname: "/ingredient-detail", params: { id: item.id, name: item.name, img: item.img } }}>
@@ -22,6 +22,7 @@ function IngredientListItem({ item, index }) {
                             }
 
                         </View>
+                        {item.selected && showTick && <Image source={require("../../assets/tick.png")} style={{ width: 30, height: 30, opacity: 0.55 }} /> }
                     </View>
                 </TouchableOpacity>
             </Link>
@@ -42,6 +43,7 @@ const styles = StyleSheet.create({
     row: {
         flexDirection: "row",
         alignItems: "center",
+        justifyContent: "space-between",
         paddingVertical: 16,
         paddingHorizontal: 12,
         gap: 16,

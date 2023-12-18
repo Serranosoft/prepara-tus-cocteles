@@ -5,7 +5,7 @@
             "name": "Cóctel 1",
             "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
             "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-9.jpg",
-            "ingredients": [1, 2, 3]
+            "ingredients": [1, 2, 3, 4]
         },
         {
             "id": 2,
