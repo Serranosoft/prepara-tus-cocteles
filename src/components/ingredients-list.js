@@ -57,7 +57,7 @@ export default function IngredientsList({ id }) {
     const renderItem = ({ item, index }) => <IngredientListItem item={item} index={index} showTick={id ? true : false} />
 
     return (
-        <View>
+        <View style={{ flex: 1, paddingTop: 16 }}>
             <FlatList
                 keyExtractor={(item) => item.id.toString()}
                 contentContainerStyle={{ paddingVertical: 8 }}

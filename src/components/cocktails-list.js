@@ -50,7 +50,7 @@ export default function CocktailsList({ id }) {
         setFridge(fridge);
     }
 
-    function handleCocktails() {
+    function handleCocktails(cocktails) {
 
         // Ordena los cócteles por coincidencia
         const cocktailsSorted = [...cocktails].sort((cocktail1, cocktail2) => {

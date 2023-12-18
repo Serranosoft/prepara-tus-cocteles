@@ -5,10 +5,15 @@ import { Stack, useLocalSearchParams } from "expo-router";
 import { Image } from "expo-image";
 import { ui } from "../src/utils/styles";
 import React from "react";
-import CocktailsList from "../src/components/cocktails-list";
 import IngredientsList from "../src/components/ingredients-list";
 
 export default function CocktailDetail() {
+
+    const imagePaths = {
+        1: require('../assets/drink1.png'),
+        2: require('../assets/drink2.png'),
+        3: require('../assets/drink3.png'),
+      };
 
     const params = useLocalSearchParams();
     const { id, name, img, steps } = params;
@@ -22,12 +27,12 @@ export default function CocktailDetail() {
                     <View style={styles.imageWrapper}>
                         <Image
                             style={styles.image}
-                            source={{ uri: img }}
+                            source={imagePaths[img]}
                             placeholder={'|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj['}
                             transition={1000}
                         />
                     </View>
-                    <Text style={[ui.h3, { marginLeft: 16 }]}>Elaboración:</Text>
+                    <Text style={ui.h3}>Elaboración:</Text>
                     {
                         steps.split(",").map((item, index) => {
                             return <Text style={{ marginLeft: 40}} key={index}>{item}</Text>
@@ -36,6 +41,7 @@ export default function CocktailDetail() {
                 </View>
             </View>
             <View style={ui.list}>
+                <Text style={[ui.h3, { paddingHorizontal: 16 }]}>Ingredientes:</Text>
                 <IngredientsList id={id} />
             </View>
         </View>

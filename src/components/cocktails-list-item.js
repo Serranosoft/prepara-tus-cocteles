@@ -20,7 +20,7 @@ function CocktailsListItem({ item, index, doableQty, id }) {
     let imageIndex = parseInt(item.id) % 3 + 1;
     return (
         <Animated.View key={item.id} entering={SlideInDown.duration(850).delay(index * 50)}>
-            <Link asChild key={item.id} href={{ pathname: "/cocktail-detail", params: { id: item.id, name: item.name, img: item.img, steps: item.steps } }}>
+            <Link asChild key={item.id} href={{ pathname: "/cocktail-detail", params: { id: item.id, name: item.name, img: imageIndex, steps: item.steps } }}>
                 <TouchableOpacity>
                     <View style={[styles.row, { borderBottomWidth: index + 1 === doableQty ? 0 : 1 }]}>
                         <View style={styles.imageWrapper}>
