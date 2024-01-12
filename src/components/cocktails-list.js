@@ -16,23 +16,90 @@ import CocktailsListItem from "./cocktails-list-item";
 
 export default function CocktailsList({ id }) {
 
-    const [cocktails, setCocktails] = useState(getCocktails());
-    const [doableQty, setDoableQty] = useState(0);
+    const [cocktails, setCocktails] = useState([]);
+    const [doableQty, setDoableQty] = useState(null);
     const [fridge, setFridge] = useState();
     const [noCocktailsFound, setNoCocktailsFound] = useState(false);
+    const [flag, setFlag] = useState(true);
 
-    // Obtener todos los ingredientes que tiene el usuario para saber cuál puede hacer
     useFocusEffect(
         useCallback(() => {
-            getFridge();
+            // Llamará siempre que haga focus.
+            // Comprobar si hay cambios en el asyncStorage, es decir, si fridge es diferente a lo que hay en asyncStorage.
+            checkChanges
         }, [])
     );
+
+
+    async function checkChanges() {
+        if (fridge) {
+            let currentIngredients = await getAsyncStorage();
+            let parsed = JSON.parse(currentIngredients);
+            if (fridge !== parsed) {
+                // Hay cambios, hay que re-renderizar
+            } else {
+                // No hay cambios, no hay que re-renderizar
+            }
+        }
+    }
+
+    async function test() {
+        let fridge = await getAsyncStorage();
+        let parsed = JSON.parse(fridge);
+        console.log(parsed);
+        return parsed;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Obtener todos los ingredientes que tiene el usuario para saber cuál puede hacer
+    /* useFocusEffect(
+        useCallback(() => {
+            // setFlag(true);
+            getAllCocktails();
+        }, [])
+    ); */
+
+    async function getAllCocktails() {
+        setCocktails(getCocktails());
+    }
+
+    useEffect(() => {
+        if (cocktails && cocktails.length > 0 && flag) {
+            getFridge();
+        }
+    }, [cocktails])
+
+    async function getFridge() {
+        // setFlag(false);
+        let fridge = await getAsyncStorage();
+        fridge = JSON.parse(fridge);
+        setFridge(fridge);
+    }
+
 
     // Eliminar todos los cocteles que no contengan el ingrediente con el id == id.
     useEffect(() => {
         if (id && fridge) {
-            const result = cocktails.filter(cocktail => cocktail.ingredients.some(ingredient => ingredient === parseInt(id)));
-
+            const result = cocktails.filter(cocktail => cocktail.ingredients.some(ingredient => ingredient == parseInt(id)));
             if (result.length > 0) {
                 handleCocktails(result);
             } else {
@@ -44,14 +111,8 @@ export default function CocktailsList({ id }) {
         }
     }, [fridge])
 
-    async function getFridge() {
-        let fridge = await getAsyncStorage();
-        fridge = JSON.parse(fridge);
-        setFridge(fridge);
-    }
-
     function handleCocktails(cocktails) {
-
+        console.log("Handle cocktails");
         // Ordena los cócteles por coincidencia
         const cocktailsSorted = [...cocktails].sort((cocktail1, cocktail2) => {
             const coincidence1 = isDoable(cocktail1.ingredients).highlight;
@@ -65,7 +126,7 @@ export default function CocktailsList({ id }) {
             cocktail.coincidenceQty = coincidenceQty
         });
 
-        setCocktails(cocktailsSorted);
+        setCocktails([...cocktailsSorted]);
         setDoableQty(cocktailsSorted.filter(cocktail => cocktail.highlight === true).length);
     }
 
@@ -73,9 +134,8 @@ export default function CocktailsList({ id }) {
     function isDoable(ingredients) {
         const accomplish = Math.ceil(0.75 * ingredients.length);
         const coincidences = ingredients.filter(ingredient => fridge.includes(ingredient));
-
         return {
-            coincidenceQty: coincidences.length,
+            coincidenceQty: coincidences.length || 0,
             highlight: coincidences.length >= accomplish,
         }
     }
@@ -98,54 +158,3 @@ export default function CocktailsList({ id }) {
             />
     )
 }
-
-const styles = StyleSheet.create({
-    row: {
-        flexDirection: "row",
-        alignItems: "flex-start",
-        paddingVertical: 16,
-        paddingHorizontal: 12,
-        gap: 16,
-        borderBottomWidth: 1,
-        borderColor: "#e8e8e8",
-
-    },
-
-    column: {
-        gap: 8,
-        alignItems: "flex-start",
-
-    },
-
-    imageWrapper: {
-        width: 70,
-        height: 70,
-        borderWidth: 1,
-        borderColor: "lightgray",
-        borderRadius: 100,
-        justifyContent: "center",
-        alignItems: "center"
-    },
-
-    image: {
-        width: 60,
-        height: 60,
-        borderRadius: 100,
-    },
-
-    alert: {
-        gap: 6,
-        padding: 20,
-        width: "100%",
-        backgroundColor: "#cccccc",
-        backgroundColor: "#337AB7",
-        alignItems: "center",
-        marginTop: 8,
-        marginBottom: 8,
-        borderWidth: 3,
-        borderColor: "#337AB7",
-        backgroundColor: "rgba(51, 122, 183, 0.25)",
-        alignSelf: "center",
-    }
-
-})
