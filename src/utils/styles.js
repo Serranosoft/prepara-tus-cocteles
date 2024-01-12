@@ -21,18 +21,18 @@ export const ui = {
     h2: {
         fontFamily: "Semibold",
         color: "black",
-        fontSize: 32,
+        fontSize: 27,
     },
     h3: {
         fontFamily: "Regular",
         color: "black",
-        fontSize: 25,
+        fontSize: 23,
         fontWeight: "bold"
     },
     h4: {
         fontFamily: "Semibold",
         color: "black",
-        fontSize: 20,
+        fontSize: 19,
         fontWeight: "bold",
     },
     button: {
