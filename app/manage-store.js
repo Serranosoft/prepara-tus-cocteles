@@ -61,7 +61,7 @@ export default function ManageStore() {
     }
 
     function handleIngredient(index) {
-        const newData = [...fullIngredients.current];
+        const newData = [...ingredients/* fullIngredients.current */];
         newData[index].selected = !newData[index].selected;
         setIngredients(newData);
 
