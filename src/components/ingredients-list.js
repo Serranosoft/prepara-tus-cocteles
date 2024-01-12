@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
-import { FlatList, View } from "react-native";
+import { FlatList, Text, View } from "react-native";
 import { getIngredients } from "../utils/ingredients";
 import { getAsyncStorage } from "../utils/storage";
 import { getIngredientDataFromId, getIngredientsIdsFromCocktail } from "../utils/cocktails";
 import IngredientListItem from "./ingredient-list-item";
 import { useFocusEffect } from "expo-router";
+import { ui } from "../utils/styles";
 
 export default function IngredientsList({ id }) {
 
@@ -46,8 +47,10 @@ export default function IngredientsList({ id }) {
             }
 
         } else {
-            for (let ingr of fridge) {
-                ingredientsAux.push(getIngredientDataFromId(ingr));
+            if (fridge) {
+                for (let ingr of fridge) {
+                    ingredientsAux.push(getIngredientDataFromId(ingr));
+                }
             }
         }
 
@@ -58,14 +61,21 @@ export default function IngredientsList({ id }) {
 
     return (
         <View style={{ flex: 1, paddingTop: 16 }}>
-            <FlatList
-                keyExtractor={(item) => item.id.toString()}
-                contentContainerStyle={{ paddingVertical: 8 }}
-                data={ingredients}
-                numColumns={1}
-                initialNumToRender={10}
-                renderItem={renderItem}
-            />
+            {
+                ingredients && ingredients.length > 0 ?
+                    <FlatList
+                        keyExtractor={(item) => item.id.toString()}
+                        contentContainerStyle={{ paddingVertical: 8 }}
+                        data={ingredients}
+                        numColumns={1}
+                        initialNumToRender={10}
+                        renderItem={renderItem}
+                    />
+                    :
+                    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+                        <Text style={[ui.muted, { fontSize: 22, textAlign: "center" }]}>Añade tus primeros ingredientes pulsando en el botón flotante</Text>
+                    </View>
+            }
         </View>
     )
 }
