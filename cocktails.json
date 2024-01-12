@@ -2,52 +2,311 @@
     "cocktails": [
         {
             "id": 1,
-            "name": "Cóctel 1",
-            "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
-            "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-9.jpg",
-            "ingredients": [1, 2, 3, 4]
+            "name": "Silver Fizz",
+            "steps": ["1. Colocar cubos de hielo en la coctelera. 2. Mezclar la ginebra, 5 cl de sirope de azúcar, 4 cl de zumo de limón y la clara de huevo. 3. Cerrar la coctelera y agitar vigorosamente durante uno o dos minutos hasta que la clara de huevo esté bien batida. 4. Verter la mezcla en un vaso o copa. 5. Perfumar con un toque de lima y añadir las decoraciones."],
+            "img": "",
+            "ingredients": [67, 195, 41, 13]
         },
         {
             "id": 2,
-            "name": "Cóctel 2",
-            "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
-            "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-5.jpg",
-            "ingredients": [4,1,6,7,9]
+            "name": "Cocktail Caipiriña Roja",
+            "steps": ["1. Introduce en el vaso estos ingredientes: 7 cl de cachaça, 3 cdas de azúcar, ½ lima (el jugo) y 1 gajo de naranja, y remueve. 2. Añade hielo picado, remueve y sirve un top de vino tinto."],
+            "img": "",
+            "ingredients": [28, 193, 12, 118, 208]
         },
         {
             "id": 3,
-            "name": "Cóctel 3",
-            "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
-            "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-1.jpg",
-            "ingredients": [1,2,3]
+            "name": "Cocktail Celebration Day",
+            "steps": ["1. Aplasta un trocito de jengibre en una coctelera Boston y añade el resto de ingredientes (1 cl de zumo de yuzu, 2 cl de zumo de maracuyá, 4 gotas de miel, 3 cl de oporto y 5 cl de whisky Dewar’s). 2. Bate con abundante hielo y sirve en copa cóctel con hielo pilé. 3. Finaliza la decoración con un garnish formado por estos tres elementos: rodaja de naranja y grosellas."],
+            "img": "",
+            "ingredients": [209, 210, 196, 112, 122, 148, 73]
         },
         {
             "id": 4,
-            "name": "Cóctel 4",
-            "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
-            "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-2.jpg",
-            "ingredients": [4,1,6,7,9]
+            "name": "Cocktail Someone Like You",
+            "steps": ["1. Bate todos los ingredientes (2 gotas de miel, un poco de bitters Peychaud, 1,5 cl de sirope de fresas, 1 clara de huevo, 3 frambuesas, 2 cl de zumo de pomelo y 5 cl de Bombay Sapphire) en una coctelera con abundante hielo. 2. Sirve el cóctel en una copa helada y finaliza la decoración con una delicada flor natural que sea comestible."],
+            "img": "",
+            "ingredients": [112, 211, 153, 41, 63, 131, 24]
         },
         {
             "id": 5,
-            "name": "Cóctel 5",
-            "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
-            "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-4.jpg",
-            "ingredients": [4,6,7,9,1]
+            "name": "Cocktail Frankiss",
+            "steps": ["1. Para su elaboración, junta todos los ingredientes en una batidora y procesalos. 2. Comienza a servir despacio mientras se cuela sobre un vaso con abundante hielo picado. 3. Decóralo con chile, cilantro y galletas."],
+            "img": "",
+            "ingredients": [209, 212, 213, 214]
         },
         {
             "id": 6,
-            "name": "Cóctel 6",
-            "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
-            "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-8.jpg",
-            "ingredients": [4,6,7,1,9]
+            "name": "Cocktail Mixture Guaraní",
+            "steps": ["1. Para realizarlo, junta todos los ingredientes en una batidora con hielo y procésalo. 2. Una vez hecho, sírvelo despacio mientras se cuela y decóralo con lemongrass, tiras de jengibre y unos pétalos de flores comestibles para dar color."],
+            "img": "",
+            "ingredients": [126, 210, 215, 112]
         },
         {
             "id": 7,
-            "name": "Cóctel 7",
-            "steps": ["1. Jajajajaja", "2. Jejejejeje", "3. Jojojojo"],
-            "img": "https://mollydigital.manu-scholz.com/wp-content/uploads/2023/10/unas-halloween-7.jpg",
-            "ingredients": [4,1,6,7,9]
-        }
+            "name": "Cocktail Seichu Collins 2",
+            "steps": ["1. Mezclar todos los ingredientes (un trozo de jengibre rallado, 3 cl de ginebra, 2 cl de licor Choya y 2 cl de zumo de yuzu) en una coctelera y agitar. 2. Servir en una copa de balón y decorar con una rodaja de limón y un bastón de jengibre."],
+            "img": "",
+            "ingredients": [68, 210, 216, 209]
+        },
+        {
+            "id": 8,
+            "name": "Cocktail Velvet Cosmo",
+            "steps": ["1. Mezclar todos los ingredientes (6 cl de Vodka, 2.5 cl de zumo de limón, 5 cl de zumo de arándanos, 2.5 cl de Chambord y 1 clara de huevo) en una coctelera y agitar. 2. Servir en copa tipo Martini y decorar con frutos rojos y pétalos de flor de pensamiento."],
+            "img": "",
+            "ingredients": [217, 195, 41, 192, 218]
+        },
+        {
+            "id": 9,
+            "name": "Cocktail Baby Jane",
+            "steps": ["1.Mezcla los ingredientes (1.5 cl de sirope de fresa, 1 dash de angostura, hielo picado y un chorro de ginger ale) en una coctelera y decora con hierbabuena."],
+            "img": "",
+            "ingredients": [153, 69, 6, 76, 219]
+        },
+        {
+            "id": 10,
+            "name": "Mexican Salty Dog",
+            "steps": ["1. Preparar la escarcha del recipiente: Mojar el borde exterior de éste con zumo de limón. Apoyar la copa invertida sobre la sal y girar hasta completar el borde, cuidando que la escarcha cubra solo la parte exterior para que no interfiera en el cóctel. 2. Poner en un vaso alto varios cubitos de hielo y luego verter 50 ml de tequila. Llenar hasta arriba el vaso con el zumo de pomelo fresco y natural y decorar con una cuña de limón."],
+            "img": "",
+            "ingredients": [168, 131, 219, 220]
+        },
+        {
+            "id": 11,
+            "name": "Cocktail Maltberry",
+            "steps": ["1. Mezclar todos los ingredientes (4 cl de Whisky escocés, 2 cl de licor de naranja, 1.5 cl de zumo de limón y 2 cl de sirope de azúcar) en una coctelera y agitar.", "2. Servir en copa tipo cóctel y decorar con borde de azúcar y las fresas cortadas por la mitad."],
+            "img": "",
+            "ingredients": [189, 173, 195, 13, 64]
+          },
+          {
+            "id": 12,
+            "name": "Cocktail Fragance Martini",
+            "steps": ["1. Mezclar todos los ingredientes (5 cl de Tanqueray, 2.5 cl de zumo de bergamota,1.5 cl de Grand Marnier, una pizca de azúcar vainillado y un poco de bitter de naranja) en una coctelera y agitar.", "2. Servir en vaso tipo coupette. Se puede decorar con pétalos de rosa o perlas de azúcar"],
+            "img": "",
+            "ingredients": [72, 222, 221, 78, 22]
+          },
+          {
+            "id": 13,
+            "name": "Cocktail Waiting for the sunset",
+            "steps": ["1. Mezclar todos los ingredientes (5 cl de Whisky, 2 cl de Vermouth, 1.5 cl de zumo de lima, 2 trozos de mango triturados, 2 cl de zumo de naranja natural y 1 cl de sirope de vainilla) en una coctelera y agitar.", "2. Servir en vaso bajo o alto, y decorar con pico de hierbabuena o mango."],
+            "img": "",
+            "ingredients": [187, 175, 104, 193, 160]
+          },
+          {
+            "id": 14,
+            "name": "Cocktail Fresh Pineapple",
+            "steps": ["1. Vierte los ingredientes (1 trocito de jengibre, 2 dados de piña y 10 cl de gaseosa de limón) en la coctelera y maja.", "2. Agita con hielo cubo y sirve en vaso largo.", "3. Añade un poco de ginger beer (cerveza de jengibre) y decora con piña y hierbabuena."],
+            "img": "",
+            "ingredients": [209, 126, 223, 70]
+          },
+          {
+            "id": 15,
+            "name": "Cocktail Bloody BBQ",
+            "steps": ["1. Mezclar todos los ingredientes (2.5 cl de Bourbon, 2.5 cl de Rye, 15 cl de zumo de tomate, una pizca de sal y pimienta, 1 cl de zumo de limón, 2 gotas de salsa Perrins, 2 cl de salsa de sojas y 2 golpes de tabasco) en una coctelera y remover.", "2. Servir en vaso bajo o alto y decorar con apio fresco en láminas (opcional)."],
+            "img": "",
+            "ingredients": [25, 145, 203, 147, 220, 195, 125, 224, 167]
+          },
+          {
+            "id": 16,
+            "name": "Cóctel Green Apple Sparkler sin alcohol",
+            "steps": ["1. Calentar el agua y el azúcar en una cazuela a fuego medio, removiendo hasta que se disuelva. Retirar y echar el jugo de lima. Dejar enfriar a temperatura ambiente.", "2.Cortar la manzana en rodajas gruesas (sin núcleo) y añadir al sirope anterior. Mover hasta cubrirlas y dejar reposar, mínimo 4 horas. Colar y verter en un bol.", "3.Poner hielo en un vaso alto, llenar un 1/3 con sirope y 2/3 con soda. Remover con una cuchara larga y decorar con rodajas de manzana y hojas de menta."],
+            "img": "",
+            "ingredients": [225, 193, 164, 219, 12, 77]
+          },
+          {
+            "id": 17,
+            "name": "Cóctel de coco, piña y almíbar",
+            "steps": ["1. Partir los cocos con cuidado cortando sólo un trozo de la parte superior teniendo cuidado de no derramar su leche.", "2. Picar el hielo y repartirlo en los cocos. En un cuenco amplio poner el tequila, la ginebra, el ron blanco, el zumo de piña y un chorrito de azúcar. Remover para mezclar bien. Repartir en los cuatro cocos.", "3. Exprimir la lima sobre los cócteles para aromatizarlos y remover. Decorar con unos gajos de lima y servir bien frío."],
+            "img": "",
+            "ingredients": [110, 168, 67, 140, 202, 13, 226, 219]
+          },
+          {
+            "id": 18,
+            "name": "Cocktail Maestros Artesanos",
+            "steps": ["1. Mezclar todos los ingredientes (10 cl de horchata, 2 cl de zumo de pomelo, 1 cl de azúcar líquido y un poquito de crema de cacao), menos el ron, en una coctelera y agitar. Una vez mezclados, añadir 5 cl de ron Zacapa 23.", "2. Servir en un vaso alto y decorar con canela en rama."],
+            "img": "",
+            "ingredients": [136, 156, 131, 13, 47]
+          },
+          {
+            "id": 19,
+            "name": "Gin Tonic de Fresas",
+            "steps": ["1. Elige una copa de boca ancha y enfríala. En una coctelera, añade 5 cl de ginebra y2 fresas cortadas y machacadas. Déjalas macerar de 2 a 5 horas según la intensidad que quieras conseguir. Añade 4 hielos y agita con fuerza.","2. Vierte en la copa la mezcla resultante. Echa 12 cl de tónica poco a poco. Introduce dos rodajas de pepino y unas hojitas de menta. Remueve y añade una fresa entera.","3. 4 cubitos de hielo grandes"],
+            "img": "",
+            "ingredients": [67, 64, 219, 149, 124, 77]
+          },
+          {
+            "id": 20,
+            "name": "Batido de Kiwi con Vodka",
+            "steps": ["1. Pela 2 kiwis y cortarlo en trozos. Lava 2 hojas de menta.","2. Pon en un vaso mezclador los kiwis troceados, 6 dl de zumo de manzana y 2 dl de tónica. Tritura con la batidora hasta reducirlo a una preparación homogénea.","3. Añade 50 ml de vodka, mezcla y vierte en vasos de cristal con hielo picado. Decora el coctel con fresas y las hojas de menta."],
+            "img": "",
+            "ingredients": [197, 227, 149, 181, 64, 219, 77]
+          },
+          {
+            "id": 21,
+            "name": "Sangría de frutos rojos",
+            "steps": ["1. En una jarra grande, vierte una botella de vino tinto y 200 gr de frutos rojos sin descongelar.","2. Deja reposar a temperatura ambiente unos 30 minutos.","3. Añade a la mezcla un limón cortado en rodajas y 1 dl de licor de fresas. Echa una cucharada de azúcar, unas hojitas de hierbabuena y unos hielos. Remueve bien y sirve fría."],
+            "img": "",
+            "ingredients": [208, 228, 229, 88, 12, 219, 76]
+          },
+          {
+            "id": 22,
+            "name": "Cocktail Esencia de mujer",
+            "steps": ["1. Sirve 5 cl de pisco y 2 frambuesas en la coctelera y maja.","2. Añade el resto de ingredientes (1,5 cl de Ancho Reyes, 1 dash de tabasco, 4 cld e zumo de limón, 3 claras de huevo, 2 cl de azúcar líquido) con hielo cubo y agita.","3. Decora con hierbabuena."],
+            "img": "",
+            "ingredients": [128, 243, 63, 167, 195, 13, 41, 76]
+          },
+          {
+            "id": 23,
+            "name": "Cóctel Aviation",
+            "steps": ["1. Llenar una copa de martini con hielo para enfriarla.","2. Poner todos los ingredientes (50 ml de gin, 15 ml de licor marrasquino, 15 ml de jugo de limón y 10 ml de crême de violette) en una coctelera y rellenar de hielo hasta arriba. Cerrar bien y agitar enérgicamente unos 8 segundos aproximadamente.","3. Quitar el hielo de la copa y colar la mezcla anterior. Se puede decorar con una cereza en el fondo de la copa."],
+            "img": "",
+            "ingredients": [67, 230, 231, 195, 219, 38]
+          },
+          {
+            "id": 24,
+            "name": "Cóctel de coco",
+            "steps": ["1. Partir los 4 cocos cortando sólo un trozo de la parte superior y con cuidado para no derramar su leche.","2. Picar 12 hielos e incorporar al coco. Añadir 240 ml de tequila, 120 ml de ginebra,120 ml de ron, 240 ml de zumo de piña y un chorrito de azúcar","3. Exprimir una lima sobre el cóctel y remover para ligar los sabores. Decorar con los gajos de lima y servir."],
+            "img": "",
+            "ingredients": [110, 168, 219, 67, 140, 202, 226, 13]
+          },
+          {
+            "id": 25,
+            "name": "Sorbete de sandía con cava",
+            "steps": ["1. Partir la sandía por la mitad. Sacar la pulpa y retirar las pepitas. Poner en un recipiente amplio y triturar con la batidora.","2. Añadir 2 dl de zumo de naranja y 200 gr de azúcar. Volver a triturar y pasar por el chino para eliminar las hebras de frutas. Verter en un recipiente y reservar al menos dos horas en el congelador.","3. Sacar del congelador, romper los cristales con un tenedor y mezclar con 1 dl de cava. Meter otras dos horas en el congelador. Sacar y volver a romper los cristales, verter en copas frías y decorar con hojas de menta. Servir."],
+            "img": "",
+            "ingredients": [232, 200, 12, 233, 77]
+          },
+          {
+            "id": 26,
+            "name": "Mint Julen",
+            "steps": ["1. Echar en un vaso bajo 8 hojas de menta, 1 cda de azúcar y 60 ml de soda. Presionamos bien para que la menta suelte toda su esencia y dé sabor.","2. Añadimos 120 ml de Bourbon y mucho hielo, removiendo con una cuchara para que éste absorba toda la mezcla. Nos quedará hueco para añadir más hielo.","3. Decorar con una ramita de menta y servir con una pajita para beberlo, sin olvidar romper un poco las hojas de menta para que den todo su aroma."],
+            "img": "",
+            "ingredients": [25, 164, 14, 77, 219]
+          },
+          {
+            "id": 27,
+            "name": "Cóctel Jack frost",
+            "steps": ["1. Poner en un vaso 2 cucharadas de azúcar y dos cucharadas de agua y poner en el microondas a media potencia unos segundos para que se disuelva.","2. Pintar con el almíbar los bordes de cuatro vasos. Poner en un plato el coco rallado y poner los vasos por la parte pintada con el almíbar en el plato para que se pegue el coco a los bordes. Reservar.","3. Poner en vaso de batidora 2 dl de zumo de piña, 1 dl de curacao, 1 dl de vodka y hielo picado. Triturar con batidora. Rellenar los vasos preparados con la mezcla y servir acompañado de arándanos."],
+            "img": "",
+            "ingredients": [181, 202, 13, 43, 234, 53]
+          },
+          {
+            "id": 28,
+            "name": "Caipiriña",
+            "steps": ["1. Lavar una lima, cortarla por la mitad y, después, en cuartos. Poner en un vaso bajo de boca ancha y añadir 2 cucharadas de azúcar. Con una mano de mortero, aplastar para que suelte su jugo y mezclarlo todo muy bien.","2. Dejar reposar un par de minutos. Añadir hielo picado aunque también puede ser entero. Los trozos del cítrico deben quedar en la parte inferior del vaso.","3. Finalmente, añadir 50 ml cachaça y mezclar suavemente."],
+            "img": "",
+            "ingredients": [226, 28, 12, 219]
+          },
+          {
+            "id": 29,
+            "name": "Mojito de piña y coco",
+            "steps": ["1. Hacer zumo de dos limas y cortar en rodajas las otras dos. Repartir las rodajas en los vasos en los que se servirán los mojitos y poner en cada uno tres hojas de menta, cortadas con la mano en trozos de tamaño medio. Es importante que los trozos no sean demasiado pequeños o, al beber, se colarán por la pajita.","2. Poner en vaso de batidora el almíbar de la piña, una rodaja de piña, ron blanco y 1 dl de leche de coco. Normalmente se utiliza ron blanco porque es el más suave, pero se puede usar cualquier tipo de ron. Batir con batidora. Repartir la mezcla en los cuatro vasos.","3. Poner hielo picado en los 4 vasos. Cortar dos rodajas de piña en trozos pequeños y repartir en los vasos. Terminar de llenar con soda y servir."],
+            "img": "",
+            "ingredients": [226, 83, 140, 126, 77, 164, 219]
+          },
+          {
+            "id": 30,
+            "name": "Salty Mexican Dog",
+            "steps": ["1. Preparar la escarcha del recipiente. Mojar el borde exterior de éste con zumo de limón o bañarlo en clara de huevo batido. Apoyar la copa invertida sobre la sal y girar hasta completar el borde, cuidando que la escarcha cubra solo la parte exterior para que no interfiera en el cóctel.","2. Poner en un vaso alto o jarrita mediana, varios cubitos de hielo y luego verter 50 ml de tequila. Llenar hasta arriba el vaso con el zumo de pomelo fresco y natural y decorar con una cuña de limón."],
+            "img": "",
+            "ingredients": [168, 131, 220, 219, 226]
+          },
+          {"id": 31, "name": "Moscow mule", "steps": ["1. Vierte directamente en una taza de cobre un poco de hielo picado, 50 ml de vodka, el zumo de media lima exprimida y un chorrito de azúcar. Mezcla con varilla.", "2.Echa el resto del hielo y rellena con el ginger beer. Decora con una rodaja fina de lima y la menta."], "img": "", "ingredients": [226, 181, 70, 13, 219, 77]},
+        {"id": 32, "name": "Irish Buck", "steps": ["1. Echa el hielo en un vaso de boca ancha y enfría. Pon 45 ml de whisky con un medidor y añade 70 ml de ginger ale.", "2. Pela la lima, exprime el jugo y mezcla suavemente. Decora con un trozo de lima y unas ramitas de menta."], "img": "", "ingredients": [188, 219, 226, 69, 77]},
+        {"id": 33, "name": "Cóctel Cosmopolitan", "steps": ["1. Poner todos los ingredientes (5 cl de vodka, 2 cl de licor triple seco, 5 cl de zumo de arándanos, 2 cl de zumo de lima) en una coctelera con hielo. Batir bien.","2. Servir colando sobre una copa de cóctel. Perfumar y decorar con piel de naranja."], "img": "", "ingredients": [181, 169, 193, 192]},
+        {"id": 34, "name": "Cóctel Margarita", "steps": ["1. Mojar el borde exterior del vaso con un gajo de lima y, una vez húmedo, pasar por la sal fina para que se quede adherida. Dejar que se seque.", "2. Echar en una coctelera el hielo, 20 ml de triple sec, 35 ml de tequila y 15 ml de zumo de lima, recién exprimido. Agita enérgicamente 10 segundos, aproximadamente.", "3. Colar y servir en una copa helada con el borde escarchado. Le puedes añadir hielo o no, según tu gusto. Decorar con la rodaja de lima. ¡Listo!"], "img": "", "ingredients": [168, 169, 193, 219, 220, 226]},
+        {"id": 35, "name": "Blue Hawaiian", "steps": ["1. Verter en el vaso de la batidora el hielo, 30 ml de ron blanco, 30 ml de curaçao, 30 ml de crema de coco y 60 ml zumo de piña. Mezclar a velocidad máxima 10 segundos para que los ingredientes queden totalmente integrados.", "2. Servir la mezcla resultante en copas altas frías y adornar con una rodaja de lima y una hojita de piña."], "img": "", "ingredients": [140, 53, 49, 202, 219]},
+        {"id": 36, "name": "Pomegranate Gin", "steps": ["1. Vierte 100 ml de zumo de granada en un vaso.", "2. Añade 60 ml de ginebra y 50 ml de ginger ale o tónica.", "3. Agrega una pizca de jengibre en polvo y decora con una rodaja de limón o lima.", "4. Añade cubitos de hielo y mezcla bien. ¡Listo para disfrutar!"], "img": "", "ingredients": [155, 67, 69, 209, 226, 219]},
+        {"id": 37, "name": "Cóctel de Limoncello Rosé", "steps": ["1. Rompe varias hojas de hierbabuena en trocitos y colócalas en el fondo del vaso.", "2. Añade cubitos de hielo al gusto y, opcionalmente, una rodaja de limón.", "3. Agrega dos cucharadas de Limoncello y luego 125 ml de vino rosado seco.", "4. Remueve bien para que quede bien mezclado. ¡Disfruta tu Limoncello Rosé!"], "img": "", "ingredients": [76, 235, 229, 236, 64, 219]},
+        {"id": 38, "name": "Diablo Azul", "steps": ["1. Escarcha una copa de cóctel con 30 ml de jugo de lima y una pizca de azúcar.", "2. En una coctelera con hielo, agrega 1 30 ml de ron Bacardi ligero, un chorrito de curaçao azul y 30 ml de jugo de naranja.","3. Agita hasta que esté bien frío y vierte en la copa de cóctel llena de hielo.", "4. Decora con una rodaja de limón. ¡Listo para disfrutar de este delicioso cóctel tropical!"], "img": "", "ingredients": [193, 12, 138, 53, 200]},
+        {"id": 39, "name": "Brisa Tropical", "steps": ["1. Vierte 40 ml de vodka sobre hielo en un vaso.", "2. Agrega 150 ml de jugo de piña y un toque de jugo de arándano.", "3. Revuelve bien y decora con piña si lo deseas."], "img": "", "ingredients": [181, 202, 191, 126]},
+        {"id": 40, "name": "Coctel de Melón y Sidra", "steps": ["1. Abre el melón redondo por la mitad, quita las pepitas y saca bolitas con una cucharilla. Reservarlas en el congelador.", "2. Limpia la cáscara del melón y coloca las bolitas congeladas, unas gotas de vainilla, la piel de una naranja y hojitas de menta en la cáscara.", "3. Cubre con sidra bien fría y decora con flores comestibles. ¡Una delicia tropical lista para disfrutar!"], "img": "", "ingredients": [109, 60, 118, 237, 77]},
+        {"id": 41, "name": "Daiquiri de Sandía", "steps": ["1. Calienta 1 dl de agua con 50 g de azúcar hasta que hierva. Reserva hasta que se enfríe completamente.", "2. Pela y pica 200 g de sandía, exprime 2 limones y añade al recipiente con el almíbar.", "3. Agrega 125 ml de ron blanco y hielo. Tritura hasta obtener una mezcla suave y líquida.", "4. Vierte en copas, decora con hojas de menta y ¡a disfrutar de este refrescante daiquiri de sandía!"], "img": "", "ingredients": [12, 232, 229, 140, 77]},
+        {"id": 42, "name": "Cóctel de Martini con Pepino", "steps": ["1. Saca cuatro tiras de un pepino para decorar y reservarlas.", "2. Haz zumo de media lima y corta el resto en rodajas finas.", "3. En un mortero, coloca el resto del pepino con el zumo de lima. Majar todo.", "4. En un vaso grande, mezcla 4 dl de ginebra, 6 cucharadas de Martini blanco dulce y el majado. Deja macerar 10 minutos, cuela, añade hielo y sirve en una copa de martini decorando con la tira de pepino y una rodaja de lima."], "img": "", "ingredients": [67, 238, 226, 124, 219]},
+        {"id": 43, "name": "Mojito de Sandía", "steps": ["1. Tritura la sandía sin pepitas con una batidora hasta convertirla en puré. Cuélalo a través de un colador de malla fina y saca todo el líquido que puedas. Vas a necesitar aproximadamente 750 ml. Elimina los sólidos.", "2.En un recipiente grande, mezcla unas hojas de menta, 1 cda de azúcar y una lima cortada en cuñas. Con el dorso de una cuchara de madera, machaca todos los ingredientes hasta que el jugo de la lima se haya soltado y el azúcar se haya diluido en él. Las hojas de menta también tienen que romperse.", "3. Incorpora el zumo de la sandía y 300 ml de ron blanc. Llena el recipiente con hielo y muévelo para que se mezclen todos los ingredientes. Sirve en un vaso ancho con hielos y algunas hojas de menta."], "img": "", "ingredients": [232, 77, 12, 226, 140]},
+        {"id": 44, "name": "Brisa Tropical Azul", "steps": ["1. Llena un vaso grande o coctelera con hielo.", "2. Vierte 60 ml de malibú, una lata de Sprite y 60 ml de Curaçao azul.", "3. Agita bien para mezclar todos los ingredientes. ¡Sirve y disfruta de esta versión azul de la Brisa Tropical con toques de coco!"], "img": "", "ingredients": [103, 239, 53, 219, 229]},
+        {"id": 45, "name": "Malibu Sunset", "steps": ["1. Coloca 3 o 4 cubitos de hielo en el fondo de un vaso.", "2. Vierte 120 ml de zumo de piña y 60 ml de Malibu sobre el hielo.", "3. Luego, vierte 30 ml de granadina lentamente por un lado del vaso para lograr la separación de colores.", "4. Decora con 2 cerezas y un trozo de piña en un palillo. ¡Listo para disfrutar del atardecer en las playas de Malibú!"], "img": "", "ingredients": [103, 202, 71, 219, 38, 126]},
+        {
+            "id": 46,
+            "name": "Mojito Mexicano",
+            "steps": ["1. Aplasta unas hojas de menta, 2 rodajas de limón y 3 cdtas de azúcar contra el fondo de una coctelera con un mezclador.", "2. Añade 45 ml de tequila y llena 2/3 partes de la coctelera con cubos de hielo.", "3. Agita hasta que el líquido esté bien frío y colócalo en un vaso con hielo.", "4. Termina de llenar el vaso con 60 ml de soda y 30 ml de jugo de lima-limón. Adorna con rodajas de limón y disfruta tu mojito mexicano."],
+            "img": "",
+            "ingredients": [77, 226, 12, 168, 219, 164, 194, 229]
+          },
+          {
+            "id": 47,
+            "name": "Sangría de Sandía y Moras",
+            "steps": ["1. En una cazuela, calienta 1 vaso de agua con 4 hojas de menta y 60 g de azúcar. Cuando hierva, remueve hasta que se disuelva el azúcar. Retira y deja que se enfríe.", "2. Haz zumo de 3 limas y ralla su piel. Corta 200 gr de sandía sin pepitas en dados.", "3. Mezcla 200 gr de moras y 4 dl de vino blanco. Déjalo reposar durante 30 minutos.", "4. En una jarra, mezcla el almíbar de azúcar, el jugo de las limas, una lima en rodajas, la sandía y el vino con las moras. Enfría en la nevera durante dos horas.", "5. Antes de servir, añade soda fría y disfruta de esta deliciosa sangría de sandía y moras."],
+            "img": "",
+            "ingredients": [232, 116, 226, 12, 219, 180, 77, 164]
+          },
+          {
+            "id": 48,
+            "name": "Mojitos de Frambuesa",
+            "steps": ["1. Para el puré de frambuesas: en una cacerola pequeña, calienta 200 gr de frambuesas, 450 ml de agua, 80 gr de azúcar y una pizca de sal hasta que espese. Tritura en la batidora hasta obtener un puré suave. Enfriar.", "2. Para el mojito: en el fondo de un vaso, aplasta 4 hojas de menta y una lima cortada en gajos. Agrega cubitos de hielo, el puré de frambuesa, 120 ml de ron y 120 ml de soda.", "3. Sirve en un vaso, decora con hojas de menta y frambuesas frescas. ¡Disfruta de este delicioso mojito de frambuesa!"],
+            "img": "",
+            "ingredients": [63, 77, 226, 140, 164, 12, 220, 219]
+          },
+          {
+            "id": 49,
+            "name": "Cóctel de Vodka con Mango y Arándanos",
+            "steps": ["1. Coloca 3 mangos pequeños maduros, pelados y en rodajas en un vaso grande (o frasco) y tritura.", "2. Hierve 2/3 taza de miel y 1 taza de agua hasta que el azúcar se disuelva. Fuera del fuego, añade el mango machacado y varias hojas de menta. Cuela el resultado y deja que se enfríe.", "3. Llena los vasos con hielo picado. Divide el jugo de mango entre los vasos y vierte20 ml de vodka en cada vaso.", "4. Añade soda o agua con gas y decora con hojas de menta fresca y moras. ¡Disfruta de este cóctel fresco de vodka con mango y arándanos!"],
+            "img": "",
+            "ingredients": [104, 112, 181, 77, 116, 164, 219]
+          },
+          {
+            "id": 50,
+            "name": "Margarita con limonada rosa",
+            "steps": ["1. Combina 2 tazas de limonada rosa, ½ taza de jugo de lima, 1 taza de triple y otra de tequila en una jarra grande y revuelve.", "2. Cuando esté listo para servir, pon la mezcla y el hielo en una coctelera y agita durante 30 segundos. Haz esto para cada bebida individual.", "3. Sirve sobre hielo en un vaso que haya sido sumergido en sal por el borde. Decorar con una rodaja de lima."],
+            "img": "",
+            "ingredients": [240, 226, 169, 168, 229, 220]
+          },
+          {
+            "id": 51,
+            "name": "Piña colada",
+            "steps": ["1.Pelar y cortar en trozos una piña que esté bien madura. Extraer el jugo en una licuadora y colarlo para eliminar los grumos y las fibras de la piña. También puedes usar zumo de piña envasado (necesitas unos 90 ml).", "2.Abrir un coco y recoger todo su agua. Pelarlo y verter en la batidora la carne de medio coco, el agua colada de la fruta y 150 ml de agua. Triturar y colar. Si no te quieres complicar mucho, la leche de coco se vende embotellada, lista para usar (necesitas 30 ml).", "3.Poner en la coctelera hielo picado, 30 ml de ron blanco, la leche de coco y el zumo de piña.", "4. Cerrarla y agitar enérgicamente hasta que los ingredientes estén integrados. Servir en una copa alta adornada con un triángulo de piña natural y una pajita."],
+            "img": "",
+            "ingredients": [140, 83, 202]
+          },
+          {
+            "id": 52,
+            "name": "Bloody Mary",
+            "steps": ["1. Prepara una coctelera con mucho hielo. Añade 45 ml de vodka, 2 golpes de salsa Worcestershire, 1 golpe de tabasco y 15 ml de zumo de limón.", "2. Agita la mezcla y deja reposar unos minutos, para que los sabores de los ingredientes se mezclen.", "3. Pon el zumo de tomate y salpimenta. Vuelve a agitar y sirve en un vaso frío. Decora con una rama de apio (opcional)."],
+            "ingredients": [181, 203, 195, 147, 167, 220, 219]
+          },
+          {
+            "id": 53,
+            "name": "Cocktail Campari Orange",
+            "steps": ["1.Echar en un vaso ancho cuatro cuñas de naranja y 2 cdas de azúcar. Aplastamos suavemente con un mortero para que salga todo el jugo de la fruta y se mezclen.", "2.Añadir unas hojas de hierbabuena y con una cuchara larga la acariciamos suavemente contra el cristal del vaso.", "3.Llenar el vaso con hielo picado, añadir 45 ml de Campari y rellenar con el refresco. Removemos la mezcla con la cuchara y movemos suave."],
+            "img": "",
+            "ingredients": [33, 118, 12, 76, 194, 219]
+          },
+          {
+            "id": 54,
+            "name": "Cóctel Margarita sencillo",
+            "steps": ["1.Triturar el hielo con una trituradora. Si no tienes, envolver el hielo con un paño y golpear con una maza hasta obtener hielo picado.", "2.Hacer zumo de 5 limones. Mezclar el zumo de limón, (reservando 3 ó 4 cucharadas del zumo), con 30 ml de tequila y 2 cdas de licor de naranja.", "."],
+            "img": "",
+            "ingredients": [168, 173, 229, 220, 219]
+          },
+          {
+            "id": 55,
+            "name": "Crema sabayón",
+            "steps": ["1. Separar las claras de las yemas de 6 huevos. Poner un cazo al baño maría con las yemas, sin que el fuego sea demasiado fuerte. El calor de las yemas no debe superar los 60º C de temperatura.", "2. Añadir 150 gr azúcar y batir hasta que las yemas aumenten su volumen y estén espumosas. Las yemas deben estar tibias sin llegar a cuajar. Añadir entonces 2 dl de vino y mantener removiendo al fuego hasta obtener una mezcla cremosa. Retirar y reservar.", "3. Montar 3 dl de nata para montar firmemente. Agregarla a la mezcla de yemas y marsala. Meter en la nevera un par de horas antes de servir. También puede tomarse caliente o templada, con higos frescos o frutos rojos, o para acompañar postres o pasteles."],
+            "img": "",
+            "ingredients": [12, 241, 119, 180]
+          },
+          {
+            "id": 56,
+            "name": "Crema de café, flan y whisky",
+            "steps": ["1. Meter unas copas pequeñas o unos vasos de chupito en el congelador. Poner en un vaso mezclador 125 ml de nata líquida. Agregar 10 gr café soluble y remover hasta que se disuelva.", "2. Añadir 125 ml de leche condensada, un flan y 4 dl de whisky. Batir todo junto hasta obtener una preparación homogénea.", "3. Sacar las copas del congelador y rellenarlas con la crema de whisky. Espolvorear la superficie de la crema con el cacao amargo en polvo y servir."],
+            "img": "",
+            "ingredients": [119, 29, 82, 187, 27, 242]
+          },
+          {
+            "id": 57,
+            "name": "Cóctel de fresas escalfadas y cava",
+            "steps": ["1.Limpia 800 gr de fresas y cortarlas en 4 trozos. Poner un cazo al fuego con las fresas cortadas, 6 dl de agua y 200 g de azúcar (mejor si es glass). Mantener al fuego 10 min. Retirar y reservar.", "2.Separar las yemas de las claras de 4 huevos. Poner las yemas en un bol y añadir 100 g de azúcar glas. Batir con varillas hasta que la mezcla blanquee. Poner una olla al fuego con agua y, dentro de ésta, un cazo con las yemas y 1, 5 dl de cava, de manera que el agua no lo toque. Dejar que la mezcla espese con el vapor, sin dejar de remover. Retirar y reservar.", "3.Repartir la mezcla de fresas y agua en 4 vasos. Poner encima el sabayón de yemas y cava y decorar con unas hojas de menta."],
+            "img": "",
+            "ingredients": [64, 12, 241, 233, 77]
+          }
     ]
 }
