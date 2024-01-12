@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet, TextInput, View } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import { Stack } from "expo-router";
 import { getIngredients } from "../src/utils/ingredients";
@@ -6,14 +6,36 @@ import { getAsyncStorage, setAsyncStorage, } from "../src/utils/storage";
 import { ui } from "../src/utils/styles";
 import { StatusBar } from "react-native";
 import ManageStoreItem from "../src/components/manage-store-item";
+import filter from "lodash.filter";
 
 export default function ManageStore() {
 
     // Array con los ingredientes actualizados
     const [ingredients, setIngredients] = useState(getIngredients());
+    const fullIngredients = useRef(getIngredients());
 
     const storage = useRef();
     const [loading, setLoading] = useState(true);
+
+    const [searchQuery, setSearchQuery] = useState("");
+
+    function handleSearch(query) {
+        setSearchQuery(query);
+        const formattedQuery = query.charAt(0).toUpperCase() + query.slice(1);
+        const filteredData = filter(fullIngredients.current, (ingr) => {
+            return contains(ingr, formattedQuery);
+        });
+        setIngredients([...filteredData]);
+
+    }
+
+    function contains({name}, query) {
+        if (name.includes(query)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     // Al comenzar, obtiene el storage y mezcla el storage con los ingredientes, esto tan solo se hace una vez.
     useEffect(() => {
@@ -39,7 +61,7 @@ export default function ManageStore() {
     }
 
     function handleIngredient(index) {
-        const newData = [...ingredients];
+        const newData = [...fullIngredients.current];
         newData[index].selected = !newData[index].selected;
         setIngredients(newData);
 
@@ -66,9 +88,18 @@ export default function ManageStore() {
     return (
         <View style={styles.container}>
             <Stack.Screen options={{ title: "Gestiona tus ingredientes", headerShown: true }} />
+            <TextInput
+                placeholder="Busca por un nombre"
+                clearButtonMode="always"
+                style={styles.searchBox}
+                autoCapitalize="none"
+                autoCorrect={false}
+                value={searchQuery}
+                onChangeText={(text) => handleSearch(text)}
+            />
             {!loading &&
                 <View style={ui.list}>
-                    <FlatList data={ingredients} renderItem={renderItem} keyExtractor={(item) => item.id} removeClippedSubviews={true} />
+                    <FlatList data={ingredients} renderItem={renderItem} keyExtractor={(item) => item.id} /* removeClippedSubviews={true} */ />
                 </View>
             }
         </View>
@@ -140,5 +171,15 @@ const styles = StyleSheet.create({
         height: 60,
         borderRadius: 100,
     },
+
+    searchBox: {
+        width: 250,
+        paddingHorizontal: 20,
+        paddingVertical: 10,
+        borderColor: "#ccc",
+        borderWidth: 1,
+        borderRadius: 8,
+        alignSelf: "center",
+    }
 
 })
