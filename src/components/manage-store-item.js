@@ -13,7 +13,7 @@ function ManageStoreItem({ item, index, handleIngredient }) {
                 <TouchableOpacity>
                     <View style={[styles.row, { borderBottomWidth: 0, paddingVertical: 0, paddingHorizontal: 0 }]}>
                         <View style={styles.column}>
-                            <Text style={ui.h4}>{item.name}</Text>
+                            <Text style={ui.text}>{item.name}</Text>
                             {
                                 getCocktailsQtyByIngredient(item.id) > 0 && <Text style={ui.muted}>Se usa en {getCocktailsQtyByIngredient(item.id)} cócteles</Text>
                             }

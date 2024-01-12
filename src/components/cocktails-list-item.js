@@ -1,6 +1,5 @@
-// import { Image } from "expo-image";
 import React, { memo } from "react";
-import { Image, Text } from "react-native";
+import { Text } from "react-native";
 import { View } from "react-native";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { StyleSheet } from "react-native";
@@ -10,29 +9,18 @@ import Animated, { SlideInDown } from "react-native-reanimated";
 import { TouchableOpacity } from "react-native";
 import { getIngredientNameById } from "../utils/ingredients";
 
-const imagePaths = {
-    1: require('../../assets/drink1.png'),
-    2: require('../../assets/drink2.png'),
-    3: require('../../assets/drink3.png'),
-  };
 
 function CocktailsListItem({ item, index, doableQty, id }) {
-    let imageIndex = parseInt(item.id) % 3 + 1;
+    
     return (
         <Animated.View key={item.id} entering={SlideInDown.duration(850).delay(index * 50)}>
-            <Link asChild key={item.id} href={{ pathname: "/cocktail-detail", params: { id: item.id, name: item.name, img: imageIndex, steps: item.steps } }}>
+            <Link asChild key={item.id} href={{ pathname: "/cocktail-detail", params: { id: item.id, name: item.name, steps: item.steps } }}>
                 <TouchableOpacity>
                     <View style={[styles.row, { borderBottomWidth: index + 1 === doableQty ? 0 : 1 }]}>
                         <View style={styles.imageWrapper}>
-                            <Image
-                                style={styles.image}
-                                source={imagePaths[imageIndex]}
-                                placeholder={'|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj['}
-                                transition={1000}
-                            />
                         </View>
                         <View style={styles.column}>
-                            <Text style={ui.h4}>{item.name}</Text>
+                            <Text style={[ui.h4, { width: 270 }]} numberOfLines={2}>{item.name}</Text>
                             <Text style={[ui.muted, { width: 270 }]} numberOfLines={2}>
                                 {item.ingredients.map((ingr, index) => (
                                     <React.Fragment key={index}>
@@ -67,8 +55,8 @@ function CocktailsListItem({ item, index, doableQty, id }) {
         </Animated.View>
     )
 }
-
-export default memo(CocktailsListItem);
+export default CocktailsListItem;
+// export default memo(CocktailsListItem);
 
 const styles = StyleSheet.create({
     row: {
@@ -92,10 +80,11 @@ const styles = StyleSheet.create({
         width: 70,
         height: 70,
         borderWidth: 1,
-        borderColor: "lightgray",
+        borderColor: "gray",
         borderRadius: 100,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        backgroundColor: "#f1f1f1"
     },
 
     image: {

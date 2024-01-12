@@ -2,7 +2,6 @@ import { StyleSheet } from "react-native";
 import { Text } from "react-native";
 import { View } from "react-native";
 import { Stack, useLocalSearchParams } from "expo-router";
-import { Image } from "expo-image";
 import { ui } from "../src/utils/styles";
 import React from "react";
 import CocktailsList from "../src/components/cocktails-list";
@@ -11,7 +10,7 @@ import { StatusBar } from "react-native";
 export default function IngredientDetail() {
 
     const params = useLocalSearchParams();
-    const { id, name, img } = params;
+    const { id, name } = params;
 
     return (
         <View style={styles.container}>
@@ -19,14 +18,6 @@ export default function IngredientDetail() {
             <View style={[ui.wrapper, { paddingBottom: 16 }]}>
                 <View style={{ alignItems: "center", gap: 16, marginBottom: 32 }}>
                     <Text style={ui.h2}>{name}</Text>
-                    <View style={styles.imageWrapper}>
-                        <Image
-                            style={styles.image}
-                            source={{ uri: img }}
-                            placeholder={'|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj['}
-                            transition={1000}
-                        />
-                    </View>
                 </View>
                 <Text style={ui.text}>Cócteles que contienen {name}:</Text>
             </View>
@@ -54,10 +45,11 @@ const styles = StyleSheet.create({
         width: 135,
         height: 135,
         borderWidth: 1,
-        borderColor: "lightgray",
+        borderColor: "gray",
         borderRadius: 100,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        backgroundColor: "#f1f1f1"
     },
 
     image: {
