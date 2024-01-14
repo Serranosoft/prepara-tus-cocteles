@@ -16,103 +16,47 @@ import CocktailsListItem from "./cocktails-list-item";
 
 export default function CocktailsList({ id }) {
 
-    const [cocktails, setCocktails] = useState([]);
+    const [cocktails, setCocktails] = useState(getCocktails());
     const [doableQty, setDoableQty] = useState(null);
     const [fridge, setFridge] = useState();
     const [noCocktailsFound, setNoCocktailsFound] = useState(false);
-    const [flag, setFlag] = useState(true);
 
     useFocusEffect(
         useCallback(() => {
-            // Llamará siempre que haga focus.
-            // Comprobar si hay cambios en el asyncStorage, es decir, si fridge es diferente a lo que hay en asyncStorage.
-            checkChanges
+            getFridge();
         }, [])
     );
 
-
-    async function checkChanges() {
-        if (fridge) {
-            let currentIngredients = await getAsyncStorage();
-            let parsed = JSON.parse(currentIngredients);
-            if (fridge !== parsed) {
-                // Hay cambios, hay que re-renderizar
-            } else {
-                // No hay cambios, no hay que re-renderizar
-            }
-        }
-    }
-
-    async function test() {
-        let fridge = await getAsyncStorage();
-        let parsed = JSON.parse(fridge);
-        console.log(parsed);
-        return parsed;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // Obtener todos los ingredientes que tiene el usuario para saber cuál puede hacer
-    /* useFocusEffect(
-        useCallback(() => {
-            // setFlag(true);
-            getAllCocktails();
-        }, [])
-    ); */
-
-    async function getAllCocktails() {
-        setCocktails(getCocktails());
-    }
-
+    // Encargado de renderizar cocktails.
     useEffect(() => {
-        if (cocktails && cocktails.length > 0 && flag) {
-            getFridge();
+        if (fridge) {
+            id ? renderById(id) : render();
         }
-    }, [cocktails])
+    }, [fridge])
 
     async function getFridge() {
-        // setFlag(false);
         let fridge = await getAsyncStorage();
         fridge = JSON.parse(fridge);
         setFridge(fridge);
     }
 
+    async function render() {
+        handleCocktails(cocktails);
+    }
 
-    // Eliminar todos los cocteles que no contengan el ingrediente con el id == id.
-    useEffect(() => {
-        if (id && fridge) {
-            const result = cocktails.filter(cocktail => cocktail.ingredients.some(ingredient => ingredient == parseInt(id)));
-            if (result.length > 0) {
-                handleCocktails(result);
-            } else {
-                setNoCocktailsFound(true);
-            }
-
-        } else if (fridge) {
-            handleCocktails(cocktails);
+    async function renderById() {
+        const result = cocktails.filter(cocktail => cocktail.ingredients.some(ingredient => ingredient == parseInt(id)));
+        if (result.length > 0) {
+            handleCocktails(result);
+        } else {
+            setNoCocktailsFound(true);
         }
-    }, [fridge])
+    }    
+
+    
 
     function handleCocktails(cocktails) {
-        console.log("Handle cocktails");
+        console.log("Handle cocktails.");
         // Ordena los cócteles por coincidencia
         const cocktailsSorted = [...cocktails].sort((cocktail1, cocktail2) => {
             const coincidence1 = isDoable(cocktail1.ingredients).highlight;
