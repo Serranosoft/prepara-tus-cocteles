@@ -8,7 +8,7 @@ export default function Cocktails() {
 
     return (
         <View style={styles.container}>
-            <Text style={[ui.h4, { paddingHorizontal: 16 }]}>¿Qué coctel quieres hacer hoy?</Text>
+            <Text style={[ui.h3, { paddingHorizontal: 16 }]}>¿Qué coctel quieres hacer hoy?</Text>
             <View style={ui.list}>
                 <CocktailsList />
             </View>

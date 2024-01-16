@@ -61,7 +61,7 @@ export default function ManageStore() {
     }
 
     function handleIngredient(index) {
-        const newData = [...ingredients/* fullIngredients.current */];
+        const newData = [...ingredients];
         newData[index].selected = !newData[index].selected;
         setIngredients(newData);
 
@@ -87,7 +87,7 @@ export default function ManageStore() {
 
     return (
         <View style={styles.container}>
-            <Stack.Screen options={{ title: "Gestiona tus ingredientes", headerShown: true }} />
+            <Stack.Screen options={{ title: "Añade o elimina ingredientes", headerShown: true }} />
             <TextInput
                 placeholder="Busca por un nombre"
                 clearButtonMode="always"
@@ -99,7 +99,7 @@ export default function ManageStore() {
             />
             {!loading &&
                 <View style={ui.list}>
-                    <FlatList data={ingredients} renderItem={renderItem} keyExtractor={(item) => item.id} /* removeClippedSubviews={true} */ />
+                    <FlatList data={ingredients} renderItem={renderItem} keyExtractor={(item) => item.id} />
                 </View>
             }
         </View>

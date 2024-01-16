@@ -44,7 +44,7 @@ function CocktailsListItem({ item, index, doableQty, id }) {
                         </View>
                     </View>
                 </TouchableOpacity>
-            </Link >
+            </Link>
             {
                 !id && (index + 1) === doableQty &&
                 <View style={styles.alert}>

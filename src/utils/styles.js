@@ -55,5 +55,12 @@ export const ui = {
 
     list: {
         flex: 1,
+    },
+
+    highlight: {
+        paddingHorizontal: 12, 
+        paddingVertical: 3, 
+        fontSize: 13.25, 
+        borderRadius: 12
     }
 }
