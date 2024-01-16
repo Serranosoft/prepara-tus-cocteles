@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { Text } from "react-native";
+import { Image, Text } from "react-native";
 import { View } from "react-native";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { StyleSheet } from "react-native";
@@ -18,6 +18,7 @@ function CocktailsListItem({ item, index, doableQty, id }) {
                 <TouchableOpacity>
                     <View style={[styles.row, { borderBottomWidth: index + 1 === doableQty ? 0 : 1 }]}>
                         <View style={styles.imageWrapper}>
+                            <Image style={styles.image} source={require("../../assets/margarita-limonada-rosa.jpg")} />
                         </View>
                         <View style={styles.column}>
                             <Text style={[ui.h4, { width: 270 }]} numberOfLines={2}>{item.name}</Text>
@@ -91,6 +92,7 @@ const styles = StyleSheet.create({
         width: 60,
         height: 60,
         borderRadius: 100,
+        resizeMode: "contain"
     },
 
     alert: {

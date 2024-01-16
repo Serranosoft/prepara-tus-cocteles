@@ -56,7 +56,6 @@ export default function CocktailsList({ id }) {
     
 
     function handleCocktails(cocktails) {
-        console.log("Handle cocktails.");
         // Ordena los cócteles por coincidencia
         const cocktailsSorted = [...cocktails].sort((cocktail1, cocktail2) => {
             const coincidence1 = isDoable(cocktail1.ingredients).highlight;

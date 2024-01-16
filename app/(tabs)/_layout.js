@@ -1,13 +1,12 @@
 
-import { SplashScreen, Stack, Tabs } from 'expo-router';
-import { DataContext } from "../../src/DataContext";
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { Link, SplashScreen, Stack, Tabs } from 'expo-router';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import { View } from 'react-native';
 import { StatusBar } from 'react-native';
 import { useFonts } from 'expo-font';
 import { useEffect } from 'react';
+import { ui } from '../../src/utils/styles';
 SplashScreen.preventAutoHideAsync();
 
 export default function Layout() {
@@ -42,6 +41,51 @@ export default function Layout() {
                         headerShown: false,
                         tabBarActiveTintColor: "#337AB7",
                         tabBarInactiveTintColor: "#b5b5b5",
+                    }}
+                />
+                <Tabs.Screen
+                    name="redirect-to-manage-store"
+                    options={{
+                        tabBarIcon: () => (
+                            <View>
+                                <View
+                                    style={{
+                                        position: 'absolute',
+                                        bottom: 30,
+                                        height: 68,
+                                        width: 68,
+                                        borderRadius: 68,
+                                        backgroundColor: "white",
+                                        borderColor: "#337AB7",
+                                        borderWidth: 3,
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        zIndex: 1,
+                                    }}>
+                                    <Link href="manage-store">
+                                        <View
+                                            style={{
+                                                height: 58,
+                                                width: 58,
+                                                borderRadius: 58,
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
+                                                backgroundColor: "rgba(51, 122, 183, 0.25)",
+                                            }}>
+                                            <MaterialCommunityIcons name="basket-plus-outline" size={30} color="black" />
+                                        </View>
+                                    </Link>
+                                </View>
+                                <Text style={[ui.h4, { paddingTop: 30, fontSize: 15 }]}>Mi nevera</Text>
+
+                            </View>
+                        ),
+                        tabBarStyle: { height: 0 },
+                        tabBarLabel: "",
+                        tabBarLabelStyle: { display: "none" },
+                        headerShown: false,
+                        tabBarActiveTintColor: "#337AB7",
+                        tabBarInactiveTintColor: "#b5b5b5"
                     }}
                 />
                 <Tabs.Screen

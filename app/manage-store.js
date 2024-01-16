@@ -1,14 +1,21 @@
-import { FlatList, StyleSheet, TextInput, View } from "react-native";
+import { FlatList, StyleSheet, Text, TextInput, View } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
-import { Stack } from "expo-router";
+import { Stack, useRootNavigation, useRouter } from "expo-router";
 import { getIngredients } from "../src/utils/ingredients";
 import { getAsyncStorage, setAsyncStorage, } from "../src/utils/storage";
 import { ui } from "../src/utils/styles";
 import { StatusBar } from "react-native";
 import ManageStoreItem from "../src/components/manage-store-item";
 import filter from "lodash.filter";
+import useBackHandler from "../src/components/useBackHandler";
 
 export default function ManageStore() {
+
+    const router = useRouter();
+    useBackHandler(() => {
+        router.push("/");
+        return true;
+    });
 
     // Array con los ingredientes actualizados
     const [ingredients, setIngredients] = useState(getIngredients());
@@ -29,7 +36,7 @@ export default function ManageStore() {
 
     }
 
-    function contains({name}, query) {
+    function contains({ name }, query) {
         if (name.includes(query)) {
             return true;
         } else {
@@ -87,7 +94,7 @@ export default function ManageStore() {
 
     return (
         <View style={styles.container}>
-            <Stack.Screen options={{ title: "Añade o elimina ingredientes", headerShown: true }} />
+            <Stack.Screen options={{ title: "Añade o elimina ingredientes", headerShown: true, /* headerLeft: null, */ headerLeft: () => null, headerBackVisible: false }} />
             <TextInput
                 placeholder="Busca por un nombre"
                 clearButtonMode="always"

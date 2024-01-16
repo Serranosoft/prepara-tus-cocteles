@@ -66,12 +66,6 @@ export default function Root() {
             <View style={ui.list}>
                 <IngredientsList />
             </View>
-
-            <Link asChild href="/manage-store">
-                <Pressable style={ui.button}>
-                    <MaterialCommunityIcons name="basket-plus-outline" size={30} color="black" />
-                </Pressable>
-            </Link>
         </View>
     )
 }
