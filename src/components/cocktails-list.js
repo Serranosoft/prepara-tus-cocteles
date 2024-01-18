@@ -1,17 +1,9 @@
-import { Image } from "expo-image";
 import React, { useCallback, useEffect, useState } from "react";
-import { Text } from "react-native";
-import { View } from "react-native";
-import { FlatList } from "react-native";
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { Text, View, FlatList } from "react-native";
 import getCocktails from "../utils/cocktails";
-import { StyleSheet } from "react-native";
 import { getAsyncStorage } from "../utils/storage";
-import { Link, useFocusEffect } from "expo-router";
+import { useFocusEffect } from "expo-router";
 import { ui } from "../utils/styles";
-import Animated, { SlideInDown } from "react-native-reanimated";
-import { TouchableOpacity } from "react-native";
-import { getIngredientNameById } from "../utils/ingredients";
 import CocktailsListItem from "./cocktails-list-item";
 
 export default function CocktailsList({ id }) {

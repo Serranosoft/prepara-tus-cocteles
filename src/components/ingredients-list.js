@@ -73,7 +73,7 @@ export default function IngredientsList({ id }) {
                     />
                     :
                     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-                        <Text style={[ui.muted, { fontSize: 22, textAlign: "center" }]}>Añade tus primeros ingredientes pulsando en el botón flotante</Text>
+                        <Text style={[ui.muted, { fontSize: 22, textAlign: "center" }]}>Añade tus primeros ingredientes pulsando en «Mi nevera»</Text>
                     </View>
             }
         </View>

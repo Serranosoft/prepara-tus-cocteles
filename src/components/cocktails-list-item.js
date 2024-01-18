@@ -8,17 +8,25 @@ import { ui } from "../utils/styles";
 import Animated, { SlideInDown } from "react-native-reanimated";
 import { TouchableOpacity } from "react-native";
 import { getIngredientNameById } from "../utils/ingredients";
+import { COCKTAIL_IMAGES } from "../utils/data";
 
 
 function CocktailsListItem({ item, index, doableQty, id }) {
-    
+    let imgSource = null;
+    if (COCKTAIL_IMAGES[item.name.toLowerCase().split(' ').join('-').normalize("NFD").replace(/[\u0300-\u036f]/g, "")]) {
+        imgSource = COCKTAIL_IMAGES[item.name.toLowerCase().split(' ').join('-').normalize("NFD").replace(/[\u0300-\u036f]/g, "")].uri;
+    }
+
     return (
         <Animated.View key={item.id} entering={SlideInDown.duration(850).delay(index * 50)}>
             <Link asChild key={item.id} href={{ pathname: "/cocktail-detail", params: { id: item.id, name: item.name, steps: item.steps } }}>
                 <TouchableOpacity>
                     <View style={[styles.row, { borderBottomWidth: index + 1 === doableQty ? 0 : 1 }]}>
                         <View style={styles.imageWrapper}>
-                            <Image style={styles.image} source={require("../../assets/margarita-limonada-rosa.jpg")} />
+                            {
+                                imgSource && <Image style={styles.image} source={imgSource} />
+                            }
+                            
                         </View>
                         <View style={styles.column}>
                             <Text style={[ui.h4, { width: 270 }]} numberOfLines={2}>{item.name}</Text>
