@@ -94,7 +94,7 @@ export default function ManageStore() {
 
     return (
         <View style={styles.container}>
-            <Stack.Screen options={{ title: "Añade o elimina ingredientes", headerShown: true, /* headerLeft: null, */ headerLeft: () => null, headerBackVisible: false }} />
+            <Stack.Screen options={{ title: "Añade o elimina ingredientes", headerShown: true, headerLeft: () => null, headerBackVisible: false }} />
             <TextInput
                 placeholder="Busca por un nombre"
                 clearButtonMode="always"
