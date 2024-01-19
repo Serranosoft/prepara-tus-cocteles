@@ -47,7 +47,7 @@ export default function Layout() {
                     name="redirect-to-manage-store"
                     options={{
                         tabBarIcon: () => (
-                            <View>
+                            <View style={{justifyContent: "center", alignItems: "center"}}>
                                 <View
                                     style={{
                                         position: 'absolute',
@@ -76,7 +76,7 @@ export default function Layout() {
                                         </View>
                                     </Link>
                                 </View>
-                                <Text style={[ui.h4, { paddingTop: 30, fontSize: 15 }]}>Mi nevera</Text>
+                                <Text style={[ui.h4, { paddingTop: 30, fontSize: 15 }]}>Ingredientes</Text>
 
                             </View>
                         ),
