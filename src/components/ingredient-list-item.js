@@ -30,7 +30,8 @@ function IngredientListItem({ item, index, showTick }) {
     )
 }
 
-export default memo(IngredientListItem);
+export default IngredientListItem;
+// export default memo(IngredientListItem);
 
 
 const styles = StyleSheet.create({
