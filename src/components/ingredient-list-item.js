@@ -6,14 +6,18 @@ import { getCocktailsQtyByIngredient } from "../utils/cocktails";
 import { StyleSheet } from "react-native";
 import { ui } from "../utils/styles";
 import Animated, { SlideInDown } from "react-native-reanimated";
-import { memo } from "react";
+import { memo, useContext } from "react";
+import { DataContext } from "../DataContext";
 
 function IngredientListItem({ item, index, showTick }) {
+
+    const { setAdTrigger } = useContext(DataContext);
+
 
     return (
         <Animated.View key={item.id} entering={SlideInDown.duration(850).delay(index * 50)}>
             <Link asChild href={{ pathname: "/ingredient-detail", params: { id: item.id, name: item.name, img: item.img } }}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => setAdTrigger((adTrigger) => adTrigger + 1)}>
                     <View style={styles.row}>
                         <View style={styles.column}>
                             <Text style={ui.h4}>{item.name}</Text>

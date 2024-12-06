@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useContext } from "react";
 import { Image, Text } from "react-native";
 import { View } from "react-native";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
@@ -9,9 +9,14 @@ import Animated, { SlideInDown } from "react-native-reanimated";
 import { TouchableOpacity } from "react-native";
 import { getIngredientNameById } from "../utils/ingredients";
 import { COCKTAIL_IMAGES } from "../utils/data";
+import { DataContext } from "../DataContext";
 
 
 function CocktailsListItem({ item, index, doableQty, id }) {
+
+    const { setAdTrigger } = useContext(DataContext);
+
+
     let imgSource = null;
     if (COCKTAIL_IMAGES[item.name.toLowerCase().split(' ').join('-').normalize("NFD").replace(/[\u0300-\u036f]/g, "")]) {
         imgSource = COCKTAIL_IMAGES[item.name.toLowerCase().split(' ').join('-').normalize("NFD").replace(/[\u0300-\u036f]/g, "")].uri;
@@ -20,7 +25,7 @@ function CocktailsListItem({ item, index, doableQty, id }) {
     return (
         <Animated.View key={item.id} entering={SlideInDown.duration(850).delay(index * 50)}>
             <Link asChild key={item.id} href={{ pathname: "/cocktail-detail", params: { id: item.id, name: item.name, steps: item.steps } }}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => setAdTrigger((adTrigger) => adTrigger + 1)}>
                     <View style={[styles.row, { borderBottomWidth: index + 1 === doableQty ? 0 : 1 }]}>
                         <View style={styles.imageWrapper}>
                             {

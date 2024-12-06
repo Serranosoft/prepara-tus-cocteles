@@ -1,38 +1,49 @@
 {
-  "expo": {
-    "name": "Recetas de cócteles",
-    "slug": "cocteles",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/logo-cocteles.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash-cocteles.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "scheme": "cocteles",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/logo-cocteles.png",
-        "backgroundColor": "#ffffff"
-      },
-      "versionCode": 4,
-      "package": "com.paulaymanu113.cocteles"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "f64e0e3e-013b-4e7d-b693-3f41c2949834"
-      }
+    "expo": {
+        "name": "Recetas de cócteles",
+        "slug": "cocteles",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/logo-cocteles.png",
+        "userInterfaceStyle": "light",
+        "splash": {
+            "image": "./assets/splash-cocteles.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#ffffff"
+        },
+        "scheme": "cocteles",
+        "assetBundlePatterns": [
+            "**/*"
+        ],
+        "ios": {
+            "supportsTablet": true
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/logo-cocteles.png",
+                "backgroundColor": "#ffffff"
+            },
+            "versionCode": 5,
+            "package": "com.paulaymanu113.cocteles"
+        },
+        "web": {
+            "favicon": "./assets/favicon.png"
+        },
+        "extra": {
+            "eas": {
+                "projectId": "f64e0e3e-013b-4e7d-b693-3f41c2949834"
+            }
+        },
+        "plugins": [
+            "expo-font",
+            "expo-router",
+            [
+                "react-native-google-mobile-ads",
+                {
+                    "androidAppId": "ca-app-pub-3738413299329691~6965521766",
+                    "iosAppId": "ca-app-pub-3738413299329691~6965521766"
+                }
+            ]
+        ]
     }
-  }
 }
