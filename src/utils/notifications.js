@@ -19,8 +19,8 @@ export async function testNotification() {
         const notificacion = {
             identifier: "notificacion-10-sec",
             content: {
-                title: '¿Estás pensando en hacerte las uñas?',
-                body: 'Entra y mira todas las ideas y diseños de uñas que tenemos para ti',
+                title: '¿Estás pensando en preparar un coctel?',
+                body: 'Entra y mira todas las ideas y recetas de cocteles que tenemos para ti',
             },
             trigger: {
                 seconds: 10, // La hora a la que se lanzará la notificación
@@ -56,8 +56,8 @@ export async function scheduleWeeklyNotification() {
         const notificacion = {
             identifier: 'notificacion-semanal',
             content: {
-                title: '¿Estás pensando en hacerte las uñas?',
-                body: 'Entra y mira todas las ideas y diseños de uñas que tenemos para ti',
+                title: '¿Estás pensando en preparar un coctel?',
+                body: 'Entra y mira todas las ideas y recetas de cocteles que tenemos para ti',
             },
             trigger: {
                 seconds: getLeftTimeToNextMonday(),
